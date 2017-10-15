@@ -1,36 +1,40 @@
 """ Dice.py
-    This program rolls dice
-    It includes a display module and a string parser
+    This program rolls dice and returns a value
+    
+    Desc: It includes the display module and 
+    Author: Jeremy Stintzcum
+    Date last Modified: 10/15/17
+    python ver: 2.7
 """
 import random, curses, curses.panel
 
-#TODO log all die events
-#TODO send ncurses over network
 #TODO Move settings to file
-
 #settings
 BORDER = 0
-BKGD_COLOR = 0
+DBORDER = 2 * BORDER
 OFFSET = 1 + BORDER
-DIE_ROLLER_WIDTH = 24 + (OFFSET*2)
+DOFFSET = 2 * OFFSET
+DIE_ROLLER_WIDTH = 24 + DOFFSET
 
-""" class Roller(stdscr,colorList)
-    The class that handles all window interactions
-    it uses the stdscr to get window size, and takes in three colors:
-    0 is background
-    1 is other players and self
-    2 is DM
-    loud determines how verbose the output is 
-"""
 class Roller:
+    """ class Roller(stdscr,colorList, loud)
+        The class that handles all window interactions
+        
+        stdscr: ncurses window with the terminal's y and x coordinates
+        color: default color for the window
+            0 is background
+            1 is the DM
+            2-256 are for players
+        loud: determines how verbose the output is 
+    """
     def __init__(self, stdscr, color=0, loud=False):
         self.Y, self.X = stdscr.getmaxyx()
         #init vars
-        self.h = self.Y - (2*BORDER)
+        self.h = self.Y - DBORDER
         self.w = DIE_ROLLER_WIDTH
         self.y = BORDER
-        self.x = self.X - (DIE_ROLLER_WIDTH + (BORDER*2))
-        self.li = []
+        self.x = self.X - (DIE_ROLLER_WIDTH + DBORDER)
+        self.display = []
         self.loud = loud
         self.color = color
         #set window
@@ -44,74 +48,86 @@ class Roller:
         curses.panel.update_panels()
         curses.doupdate()
 
-    """ updateList(string)
-        The most recent roll of the die is displayed at the bottom of the queue.
-        Colors are maintained
-    """
-    def updateList(self, string, color = BKGD_COLOR):
-        self.li.reverse()
-        for i in range(len(string)):
-            string[i] = "{message: <{width}}".format(message=string[i], 
-            width=self.w-2)
-            self.li.append((string[i],color))
-        self.li.reverse()
-        while len(self.li) >= (self.h-(OFFSET*2)):
-            self.li.pop()
-        for j in range(len(self.li)):
-            self.window.addstr((self.h-OFFSET-1)-j,1,self.li[j][0],
-            curses.color_pair(self.li[j][1]))
+    def updateList(self, newlist, color = 0):
+        """ updateList(string)
+            Draws the output of the die roll and refreshes the panel
+            
+            newlist: List of strings to be drawn on screen
+        """
+        #add new entries to display list
+        self.display.reverse()
+        for i in range(len(newlist)):
+            newlist[i] = "{message: <{width}}".format(message=newlist[i], 
+            width=self.w-DOFFSET)
+            #TODO make the strings auto-wrap when exceeding width of dice bar
+            self.display.append((newlist[i],color))
+        self.display.reverse()
+        #remove older entries
+        while len(self.display) >= (self.h-DOFFSET):
+            self.display.pop()
+        #draw the lines in the proper order
+        for j in range(len(self.display)):
+            self.window.addstr((self.h-OFFSET-1)-j,OFFSET, self.display[j][0], 
+            curses.color_pair(self.display[j][1]))
+        #update screen
         curses.panel.update_panels()
         curses.doupdate()
 
-    """ roll(listofrolls)
-        parses a list of dictionaries of rolls, to roll several types of dice at
-        once. Returns integer value
-        dict = {#dice, denom, #keep, keeph, add}
-    """
     def Roll(self, roll = []):
-        outstring = []
+        """ roll(listofrolls)
+            Parses a list of dictionaries of rolls, to roll several types of 
+            dice at once. Returns integer value corresponding to the total of 
+            dice rolled.
+            
+            roll: A list of dictionaries as so:
+                dict = {#dice, denom, #keep, keeph, add, who}
+        """
+        #init
+        lstring = [] #loud. Always sent to the server
+        qstring = [] #quiet
         val = 0
         for i in range(len(roll)):
             #no dice, just a value
             if roll[i]["denom"] is 0:
                 if roll[i]["add"] == False:
                     val = val - roll[i]["#dice"]
-                    if self.loud:
-                        outstring.append("Subtracting "+str(roll[i]["#dice"]))
+                    lstring.append("Subtracting "+str(roll[i]["#dice"]))
+                    qstring.append("Subtracting "+str(roll[i]["#dice"]))
                 else:
                     val += roll[i]["#dice"]
-                    if self.loud:
-                        outstring.append("Adding "+str(roll[i]["#dice"]))
+                    lstring.append("Adding "+str(roll[i]["#dice"]))
+                    qstring.append("Adding "+str(roll[i]["#dice"]))
             else: #rolling dice
-                outstring.append("Rolling %sd%s" %(roll[i]["#dice"],
+                lstring.append("Rolling %sd%s" %(roll[i]["#dice"],
                     roll[i]["denom"]))
                 numlist = []
                 for j in range(roll[i]["#dice"]):
                     numlist.append(random.randint(1,roll[i]["denom"]))
-                if self.loud:
-                    outstring.append("Results: " + str(numlist))
-                numlist.sort()
+                lstring.append("Results: " + str(numlist))
+                numlist.sort() #Order the rolls from high to low
                 if roll[i]["keeph"] == False:
-                    numlist.reverse()
-                    if self.loud:
-                        outstring.append("Keeping %s low dice" 
-                        %(roll[i]["#keep"]))
+                    numlist.reverse() #low to high, pop the correct die values
+                    lstring.append("Keeping %s low dice" %(roll[i]["#keep"]))
                 else:
-                    if self.loud:
-                        outstring.append("Keeping %s high dice" 
-                        %(roll[i]["#keep"]))
+                    lstring.append("Keeping %s high dice" %(roll[i]["#keep"]))
+                #only keep the dice wanted
                 for j in range(roll[i]["#keep"]):
                     if roll[i]["add"] == False:
                         val = val - numlist.pop()
-                        outstring.append("subtracting")
+                        lstring.append("subtracting")
                     else:
-                        outstring.append("adding")
+                        lstring.append("adding")
                         val += numlist.pop()
-        outstring.append("Total: " + str(val))
+        #Write total
+        lstring.append("Total: " + str(val))
+        qstring.append("Total: " + str(val))
         #update list
-        self.updateList(outstring, roll[i]["who"]+1)
+        if self.loud:
+            self.updateList(lstring, roll[i]["who"]+1) #+1 is because who starts
+        else:                                          #at 0, and colors start 
+            self.updateList(qstring, roll[i]["who"]+1) #at 1
+        #TODO send data to logger/network
         #return number for use
-        outstring = []
         return val
         
 #Test code
@@ -129,24 +145,19 @@ if __name__ == "__main__":
     curses.init_pair(3,curses.COLOR_MAGENTA,curses.COLOR_GREEN)
     roller = Roller(stdscr, 1, True)
     dict1 = {"#dice":2, "denom":6, "#keep":1, "keeph":True, "add":True, "who":0}
-    dict2 = {"#dice":6, "denom":10, "#keep":1, "keeph":True, "add":True, "who":0}
+    dict2 = {"#dice":2, "denom":4, "#keep":2, "keeph":False, "add":True, "who":0}
     dict3 = {"#dice":3, "denom":0, "#keep":2, "keeph":True, "add":False, "who":1}
     dict4 = {"#dice":5, "denom":0, "#keep":2, "keeph":True, "add":True, "who":1}
     dict5 = {"#dice":2, "denom":4, "#keep":1, "keeph":False, "add":False, "who":2}
-    dict6 = {"#dice":3, "denom":5, "#keep":2, "keeph":True, "add":True, "who":2}
-    dict7 = {"#dice":3, "denom":5, "#keep":2, "keeph":True, "add":True, "who":2}
-    dict8 = {"#dice":3, "denom":0, "#keep":2, "keeph":True, "add":True, "who":2}
-    list1 = [dict1,dict2,dict3,dict4,dict5,dict6,dict7]
+    dict6 = {"#dice":3, "denom":6, "#keep":2, "keeph":True, "add":False, "who":2}
+    list1 = [dict1,dict2]
     list2 = [dict3,dict4]
     list3 = [dict4,dict5]
     val = roller.Roll(list1)
-    stdscr.addstr(1,1,str(val))
     stdscr.getch()
     val = roller.Roll(list2)
-    stdscr.addstr(2,1,str(val))
     stdscr.getch()
     val = roller.Roll(list3)
-    stdscr.addstr(3,1,str(val))
     stdscr.getch()
     #reset
     curses.nocbreak()
