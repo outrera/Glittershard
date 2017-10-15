@@ -25,8 +25,15 @@ CURSOR_STARTPOS = 2 #starting x position of cursor
 ITEM_OFF = len(CURSOR) + CURSOR_STARTPOS + BORDER #listed item offset
 
 class Menu:
-    """
-    
+    """ Menu(y, x, h, w, color, title)
+        Creates a menu with the given parameters
+        
+        y: y offset
+        x: x offset
+        h: horizontal height
+        v: vertical width
+        color: the color the menu will appear as
+        title: Title text
     """
     def __init__(self,y,x,h,w,color=0,title=""):
         #init vars
@@ -97,15 +104,15 @@ class Menu:
             self.window.addstr((LINE_OFF*i)+LINE_OFF,ITEM_OFF,
             self.items[i][0])
         
-    def newItem(self,name,com=0):
-        """ newItem(name,command)
+    def addItem(self,name,com=0):
+        """ addItem(name,command)
             Adds a new item to the menu and refreshes panels
             
             name: the displayed string
             command: int value to be returned on selection
         """
         name = "{message: <{width}}".format(message=name, 
-        width=self.w-ITEM_OFF)
+        width=self.w-ITEM_OFF-2)
         tup = (name,com)
         self.items.append(tup)
     
