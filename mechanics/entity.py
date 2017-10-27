@@ -159,20 +159,3 @@ class entity:
                 targetlist[i].main["hp"] -= roll
             else:
                 return "miss"
-    #Test attack
-#======================Move Outside class
-    #save
-    def save(self, filename = ""):
-        if filename is "":
-            filename = self.flavor["name"]
-        sav = open(filename,"wb")
-        
-    
-    #load
-    def load(filename, owner):
-        pass
-        
-    
-    
-    
-    
