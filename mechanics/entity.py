@@ -11,7 +11,9 @@ class entity:
     #Initialization
     def __init__(self, owner):
         #main
-        self.main = {"owner" : owner, "race" : "human", "clss" : None, "level" : 1, "xp" : 0, "armor" : 0, "dodge" : 0, "speed" : 30, "size" : "med"}
+        self.main = {"owner" : owner, "race" : "human", "clss" : None, 
+        "level" : 1, "xp" : 0, "armor" : 0, "dodge" : 0, "speed" : 30, 
+        "size" : "med"}
         #affiliations are used to determine enemies, friends, and neutrals in 
         #combat
         self.aff = []
@@ -21,16 +23,26 @@ class entity:
         "str" : 0, "sur" : 0, "wit" : 0}
         
         #skills
-        self.skills = {"animalhandling" : 0, "artistry" : 0, "biology" : 0, "enchanting" : 0, "force" : 0, "illusion" : 0, "spatial" : 0, "bruteforce" : 0, "cold" : 0, "fire" : 0, "lightning" : 0, "necrosis" : 0, "rez" : 0, "deception" : 0, "exploration" : 0, "freerunning" : 0, "judgement" : 0, "air" : 0, "earth" : 0, "health" : 0, "nature" : 0, "water" : 0, "lockpicking" : 0, "perform" : 0, "poisonresist" : 0, "search" : 0, "speechcraft" : 0, "stamina" : 0, "streetsmarts" : 0, "wilderness" : 0}
+        self.skills = {"animalhandling" : 0, "artistry" : 0, "biology" : 0, 
+        "enchanting" : 0, "force" : 0, "illusion" : 0, "spatial" : 0, 
+        "bruteforce" : 0, "cold" : 0, "fire" : 0, "lightning" : 0, 
+        "necrosis" : 0, "rez" : 0, "deception" : 0, "exploration" : 0, 
+        "freerunning" : 0, "judgement" : 0, "air" : 0, "earth" : 0, 
+        "health" : 0, "nature" : 0, "water" : 0, "lockpicking" : 0, 
+        "perform" : 0, "poisonresist" : 0, "search" : 0, "speechcraft" : 0, 
+        "stamina" : 0, "streetsmarts" : 0, "wilderness" : 0}
         
         #Max values
         self.max = {"hp" : 25, "recovery" : 2, "weight" : 50, "ms" : 0}
         
         #Current values
-        self.curr = {"hp" : 25, "recovery" : 2, "weight" : 50, "ms" : 0, "overheal" : 0, "x" : 0, "y" : 0, "z" : 0, "tired":False}
+        self.curr = {"hp" : 25, "recovery" : 2, "weight" : 50, "ms" : 0, 
+        "overheal" : 0, "x" : 0, "y" : 0, "z" : 0, "tired":False}
 
         #Wearables and Weapons
-        self.equipped = { "body" : None, "head" : None, "rring" : None, "lring" : None, "rhand" : None, "lhand" : None, "neck" : None, "feet" : None, "larm" : None, "rarm" : None}
+        self.equipped = { "body" : None, "head" : None, "rring" : None, 
+        "lring" : None, "rhand" : None, "lhand" : None, "neck" : None, 
+        "feet" : None, "larm" : None, "rarm" : None}
         self.bags = { "back" : None, "waist1" : None, "waist2" : None}
         
         #Traits, Training and Perks
@@ -150,7 +162,9 @@ class entity:
     #Test attack
 #======================Move Outside class
     #save
-    def save(filename = self.flavor["name"]):
+    def save(self, filename = ""):
+        if filename is "":
+            filename = self.flavor["name"]
         sav = open(filename,"wb")
         
     

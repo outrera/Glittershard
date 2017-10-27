@@ -2,6 +2,10 @@
 
 """ main.py
     Runs Glittershard 
+    
+    Author: Jeremy Stintzcum
+    Date last Modified: 10/28/17
+    python ver: 2.7
 """
 import curses
 import menu

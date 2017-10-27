@@ -4,23 +4,29 @@
     Contains all items for Glittershard
 """
 #weapon class
-class weapon(self):
-    self.attr = {"name":"Dagger", "price":1, "weight":0.5, "acc":1, "die":4, "#ofdie":1 "hand":1, "dtype":"blade", "ratt":True, "matt":True, "size":"small","ap":False, "rnge":1, "slow":False, "brace":False, "binds":False}
+class weapon:
+    def __init__(self):
+        self.attr = {"name":"Dagger", "price":1, "weight":0.5, "acc":1, "die":4, "#ofdie":1, "hand":1, "dtype":"blade", "ratt":True, "matt":True, "size":"small","ap":False, "rnge":1, "slow":False, "brace":False, "binds":False}
 #armor class
-class armor(self):
-    self.attr = {"name":"Cloth", "price":0, "ar":0, "weight":"none", "dexp":0}
+class armor:
+    def __init__(self):
+        self.attr = {"name":"Cloth", "price":0, "ar":0, "weight":"none", "dexp":0}
 #shields class
-class shields(self):
-    self.attr = ("name":"Buckler", "price":5, "weight":5, "hand":0, "ar":1)
+class shields:
+    def __init__(self):
+        self.attr = {"name":"Buckler", "price":5, "weight":5, "hand":0, "ar":1}
 #bag class
-class bag(self):
-    self.attr = {"name":"Backpack", "price":5, "cap":50, "wings":False, "shapeshift":False, "ammo":False}
+class bag:
+    def __init__(self):
+        self.attr = {"name":"Backpack", "price":5, "cap":50, "wings":False, "shapeshift":False, "ammo":False}
 #gear/ammo/medical/mfocus class
-class gear(self):
-    self.attr = {"name":"Awl", "price":2, "weight":0.5}
+class gear:
+    def __init__(self):
+        self.attr = {"name":"Awl", "price":2, "weight":0.5}
 #potions class
-class potions(self):
-    self.attr = {}
+class potions:
+    def __init__(self):
+        self.attr = {}
     
 #========================================================
 def get(itemName):
@@ -87,7 +93,7 @@ def get(itemName):
         greataxe.attr["size"] = "large"
         greataxe.attr["ratt"] = False
         return greataxe
-    elif itemname is "hammer"
+    elif itemname is "hammer":
         hammer = weapon()
         hammer.attr["name"] = "Hammer"
         hammer.attr["price"] = 1

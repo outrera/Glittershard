@@ -1,7 +1,8 @@
+#!/usr/bin/env python
+
 """ Dice.py
     This program rolls dice and returns a value
     
-    Desc: It includes the display module and 
     Author: Jeremy Stintzcum
     Date last Modified: 10/15/17
     python ver: 2.7
@@ -17,7 +18,7 @@ DOFFSET = 2 * OFFSET
 DIE_ROLLER_WIDTH = 24 + DOFFSET
 
 class Roller:
-    """ class Roller(stdscr,colorList, loud)
+    """ class Roller(stdscr, colorList, loud)
         The class that handles all window interactions
         
         stdscr: ncurses window with the terminal's y and x coordinates
