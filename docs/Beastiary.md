@@ -7,6 +7,12 @@ This document details the stats and traits of all the creatures of Glittershard.
 
 It contains all the information specific to one race, be it Human, Dragon, or Skeleton. It  also includes every effect like poison and sleep deprivation.
 
+**Player creation:** When making a PC, Take any race from the PC race table and apply stats.
+
+**Monster creation:** Monsters should be leveled up to match the players based on the folowing set of rules:
+
+TODO: Level up rules
+
 ***Stats:***
 ------------
 Stats start at 0. 0 is considered average for a human. All creatures have 0's for all stats initially, adding whatever bonuses their race gets them
@@ -240,7 +246,8 @@ Non-sapient Undead have the abilities they had in life, along with their equipme
 **Natural Backpack:** Creatures that have ample storage inside their bodies gain an extra backpack's worth of space.
 
 **Natural Weapons:** Some entities cannot hold weapons, but have claws or beaks or horns.
-| Implement           | Accuracy   | Mini   | Sm    | Med   | Large   | Towering   | Immense   | Special
+
+| Implement           | Accuracy   | Mini   | Sm    | Med   | Large   | Towering   | Immense   | Special 
 | ------------------- | ---------- | ------ | ----- | ----- | ------- | ---------- | --------- | -------------------------------------------------
 | Beak                | +2         | 2      | 1d4   | 1d6   | 1d6     | 1d8        | 1d8       | AP
 | Claws               | +1         | 3      | 1d4   | 1d6   | 1d8     | 1d10       | 1d10      |  
@@ -288,12 +295,13 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 **Fear:** Target of fear loses attack action for 10 seconds. 1d20 + Speechcraft vs 1d20 + Judgement
 
 **Infection:**
-| Name         | Description
-| ------------ | -----------------------------------------
-| Vampireism   | Give the vampirism trait to the victim.
-|              | 
-|              |   
-|              |   
+| Name              | Description
+| ----------------- | -----------------------------------------
+| Vampireism        | Give the vampirism trait to the victim.
+| Morpher's Curse   | Forces an entity to shapeshift into a random race every hour until cured.
+| Flu               | 
+| Wracking Cough    |
+  
 
 **Invisibile:** While invisible, an entity cannot be seen. They are still physical, can make noise, and be attacked by creatures with Enhanced senses.
 
