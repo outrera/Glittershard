@@ -215,7 +215,7 @@ Conical attacks have a point of origin, a direction, and a distance. anything wi
 **Illusion:**
 -------------
 | Spell                   | Level   | Description
-| ----------------------- | ------- ---------------------------------------------------------------------------------------------------------------------------------------
+| ----------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------
 | Lantern                 | 1       | A ball of light appears. Can be dismissed at any time. Lasts ten minutes
 | Hidden object           | 1       | An object up to medium in size can be hidden from senses
 | Hide doorway            | 1       | Disguise a doorway as part of a wall
@@ -340,7 +340,7 @@ Conical attacks have a point of origin, a direction, and a distance. anything wi
 **Spatial:**
 ------------
 | Spell                   | Level   | Description
-| ----------------------- | ------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ----------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Explosive Script        | 1       | 1d6 damage to any entity who attempts to read script
 | Magical Snare           | 1       | Restrict movement of one entity for 10 seconds. Can be set up beforehand
 | Intercept               | 1       | Prepare a block of force to block one attack within the next ten seconds. Must be within 2 units.

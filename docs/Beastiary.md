@@ -115,6 +115,8 @@ All races under a sub-category get the sub-category bonuses. Example(Angilic rac
 
 ***Mundane Animals:***
 ----------------------
+All mundane animals are eligible for the "Sapient Animal" race.
+
 Bear
 
 Falcon
@@ -137,6 +139,8 @@ Wolf
 
 Horse
 
+Jackal
+
 ***Magical Beasts:***
 ---------------------
 Giant spider
@@ -153,33 +157,43 @@ Trolls
 
 Ogres
 
+Wolfmen - Wolf/human
+
+Pantherlilys - Pather/human
+
+Werebeasts
+
 ***Enchanted Objects:***
 ------------------------
 Constructs
+- Golems
+- Clockworks
 
-Dancing weapons
+Animated weapons
 
 Animated armor
 
-Mimics
+**Mimics:** Mimics come in all shapes and sizes. They can pretend to be almost any object, spreading acute paranoia amongst adventurers.
+- Base HP: 5/10/20
+- Size: Small/Medium/Large
+- Stats:
+- Attacks:
+- Traits: Shapeshifter
 
 ***Elemental Beings:***
 -----------------------
 plants
-
 -   Creeper - plant/vine monster
-
 -   Ents
-
 -   Tumbleweed
-
 -   Vine snake
-
 -   Fly Trap
 
-Elemental spirits
+Elemental spirits - Fire, Earth, Water etc
 
 Fey
+Naga
+
 
 ***Undead:***
 -------------
@@ -197,7 +211,12 @@ The diffecernce between a skeleton and a non-sapient Lich is the amount of magic
 - Attacks: Claws, Weapons
 - Traits: Unsleeping
 
-**Flesh Pond** 
+**Flesh Pond** A pool of liquified flesh that waits until it's prey comes close enough to attack, then starts gnawing on them until one of them dies.
+- Base HP: 10
+- Size: Medium
+- Stats:
+- Attacks:
+- Traits:
 
 **Undead animals:** When an abundance of necromantic energies are poured into a creature, it can sometime be resurrected in an imperfect form.
 Undead animals keep the stats of their living counterparts, with the following changes:
@@ -222,14 +241,14 @@ Non-sapient Undead have the abilities they had in life, along with their equipme
 
 **Natural Weapons:** Some entities cannot hold weapons, but have claws or beaks or horns.
 | Implement           | Accuracy   | Mini   | Sm    | Med   | Large   | Towering   | Immense   | Special
-| ------------------- | ---------- | ------ | ----- | ----- | ------- | ---------- | --------- |  -------------------------------------------
+| ------------------- | ---------- | ------ | ----- | ----- | ------- | ---------- | --------- | -------------------------------------------------
 | Beak                | +2         | 2      | 1d4   | 1d6   | 1d6     | 1d8        | 1d8       | AP
-| Claws               | +1         | 3      | 1d4   | 1d6   | 1d8     | 1d10       | 1d10      | 
+| Claws               | +1         | 3      | 1d4   | 1d6   | 1d8     | 1d10       | 1d10      |  
 | Constriction        | +3         | 1      | 3     | 1d4   | 1d4     | 1d6        | 1d8       | Restricts movement
-| Fangs               | +2         | 3      | 1d4   | 1d4   | 1d6     | 1d6        |  1d6      | Poisons target, Slow Attack
+| Fangs               | +2         | 3      | 1d4   | 1d4   | 1d6     | 1d6        | 1d6       | Poisons target, Slow Attack
 | Fangs - Vampire     | +2         | 3      | 1d4   | 1d4   | 1d6     | 1d6        | 1d6       | Drains blood and gain HP +3/10 sec, Slow Attack
 | Hooves              | 0          | 2      | 3     | 1d4   | 1d4     | 1d6        | 1d8       | Blunt
-| Talons              | +1         | 2      | 1d4   | 1d4   | 1d6     | 1d8        | 2d4       | 
+| Talons              | +1         | 2      | 1d4   | 1d4   | 1d6     | 1d8        | 2d4       |  
 | Teeth - Herbivore   | +1         | 1      | 3     | 1d4   | 1d4     | 1d6        | 1d6       | Slow Attack
 | Teeth - Predator    | +2         | 2      | 1d4   | 1d6   | 1d8     | 1d8        | 1d10      | Slow Attack
 | Unarmed fist        | +1         | 1      | 1d4   | 1d6   | 1d6     | 1d8        | 1d8       | Blunt, unarmed
@@ -269,8 +288,8 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 **Fear:** Target of fear loses attack action for 10 seconds. 1d20 + Speechcraft vs 1d20 + Judgement
 
 **Infection:**
-| Name:        | Description
-| ------------ | -------------
+| Name         | Description
+| ------------ | -----------------------------------------
 | Vampireism   | Give the vampirism trait to the victim.
 |              | 
 |              |   
@@ -288,7 +307,7 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 
 **Poisoned:** Poisons cause damage over time. A heal check of poison level + 1d10 (rolled when poison is applied) can be passed to get rid of the poison.
 
-**Sleep Deprivation:** 
+**Sleep Deprivation:** If not long rest is taken in a 48 hour period, all stats fall by 1 per 48 hours unrested. Stats reset when a long rest is taken.
 
 **Summoned:** Summoned creatures exist separate from the controlling entity. The summons have their own stats, and share the actions of their controller.
 

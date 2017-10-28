@@ -3,346 +3,583 @@
 
 **Training:** Training is the ability to do certain things. Playing an instrument, smithing, brewing potions, etc. When not trained to use an item, it is half as effective. For Melee weapons, this means they do half damage. FOr ranged weapons, Accuracy drops by half. For armor, penalties double. Trained skills are twice as effective.
 
-
-**Ranger**
-----------
-Primary: Dex
-Recommended Secondary: Sur
-Items: Leather armor, Large Bow, 50 arrows, Quiver, 2 x Small melee, 50 gold, Standard kit
-Training: Light armor, Bows, small melee, Exploration, Wilderness
-Perks: Nimble, Dual Wield, Good Perch
-Level 4: Combat Maneuvers or Walker of all Paths
-Level 8: Fadeout or Rope Arrow
-Level 12: Double Shot or Double Strike
-Level 16: Steady Hands or Poison Blade
-Level 20: Skyshot or Pointy Wall
-
-**Guard**
----------
-Primary: Dex
-Recommended Secondary: Hea
-Items: Studded armor, Large Crossbow, 50 bolts, Quiver, Small melee, 100 gold, Standard kit
-Training: Light Armor, Crossbows, Small melee, Stamina, Street smarts
-Perks: Speed-loading, Improved Armor, Fencer
-Level 4: Finesse or Steady Hands
-Level 8: Improved Crossbow or Shield Bash
-Level 12: Combat Maneuvers or Hypertension
-Level 16: Armor Breaker or Backup Weapon
-Level 20: Gatling Mod or Sidestep
-
-**Concocter**
--------------
-Primary: Wit
-Recommended Secondary: Dex
-Items: Leather armor, Magic focus, Small Crossbow, Quiver, 20 Bolts, Standard kit or Spell Kit, 100 gold, Small Melee
-Training: Book - Enchantment, Book - Biology, Small Melee, Medium Armor, Small Crossbow
-Perks: Magical Ability, Improved Armor, Improvised medicine
-Level 4: Level 4 Spell or Mobile Brewery
-Level 8: Level 8 Spell or Medical Bolts
-Level 12: Level 12 Spell or Repeater
-Level 16: Level 16 Spell or Speed-loader
-Level 20: Level 20 Spell or Improved Crossbow
-
-**Tinkerer**
+**Assassin**
 ------------
-Primary: Wit
-Recommended Secondary: Cha
-Items: Leather armor, Magic focus, Small Melee Quiver, 20 bolts, Standard kit or Smithing kit
-Training: Book - Enchantment, Book - Force, Book - (of choice), Light armor, Small Melee
-Perks: Magical Ability, Conjuror, Backup Weapon
-Level 4: Level 4 Spell or Blueprints
-Level 8: Level 8 Spell or Steam Power
-Level 12: Level 12 Spell or Mechanic
-Level 16: Level 16 Spell or Mobile Brewery
-Level 20: Level 20 Spell or In Tune
+Primary: Dex
+
+Recommended Secondary: Str
+
+Items: Leather armor, Small Melee, small bow, 20 arrows, quiver, standard kit, 150 gold
+
+Training: Small Melee, bows, Light armor, Freerunning, Street Smarts
+
+Perks: Balanced Fighter, Good Perch, Shadowed
+
+Level 4: Light on your Toes or Hidden Blade
+
+Level 8: Destructive Parry or Blind Throw
+
+Level 12: Nightstalker or Unencumbered
+
+Level 16: Double Strike or Twin Shot
+
+Level 20: Blessing of the Night or Escape of the Crow
 
 **Berserker**
 -------------
 Primary: Str
+
 Recommended Secondary: Hea
+
 Items: 2 x Melee, Plate Mail, 50 gold, Standard Kit
+
 Training: All Melee, Heavy Armor, Stamina, Brute Force, Small thrown
+
 Perks: Hearty, Armor Breaker, Perfect Fit
+
 Level 4: Tackle or Shield Bash
+
 Level 8: Rage or Double Strike
+
 Level 12: Bone Breaker or Smasher
+
 Level 16: Heavy Strike or Firm Grip
+
 Level 20: Everlasting or Invincible
-
-**Wildman**
------------
-Primary: Str
-Recommended Secondary: Sur
-Items: Melee weapon, Plate Mail, 50 gold, Standard Kit.
-Training: All Melee, Heavy Armor, Brute Force, Freerunning, Wilderness
-Perks: Hearty, Tackle, Animal Companion
-Level 4: Hemmed in or Smasher
-Level 8: Footsweep or Friend to Animals
-Level 12: Armor Breaker or Skull Crusher
-Level 16: Fighting Buddies or Swap Out
-Level 20: Rage or Fury of Nature
-
-**Shaman**
-----------
-Primary: Sur
-Recommended Secondary: Str
-Items: Studded L Armor, 50 gold, Standard Kit
-Training: Animal handling. Exploration, Wilderness, Medium Armor, Large Melee
-Perks: Friend to Animals, Animal tongue, Animal Companion
-Level 4: Army of the Wild or Walker of all Paths
-Level 8: Fighting Buddies or Shared Senses
-Level 12: Beast Armor or Swap Out
-Level 16: In Tune or Hunting Party
-Level 20: Fury of Nature or Everlasting
-
-**Druid**
----------
-Primary: Sur
-Recommended Secondary: LM
-Items: Leather Armor, Staff or Shard, 50 gold, Standard Kit and Spell Kit
-Training: Magical Ability, Animal handling, Wilderness, Light - Nature, Light armor
-Perks: Magical Ability, Conjuror, Healing Touch
-Level 4: Level 4 Spell or Floral Reinforcement
-Level 8: Level 8 Spell or Healing Touch
-Level 12: Level 12 Spell or In Tune
-Level 16: Level 16 Spell or Poisoned Weapon
-Level 20: Level 20 Spell or Garden of Pain
-
-**Assassin**
-------------
-Primary: Dex
-Recommended Secondary: Str
-Items: Leather armor, Small Melee, small bow, 20 arrows, quiver, standard kit, 150 gold
-Training: Small Melee, bows, Light armor, Freerunning, Street Smarts
-Perks: Balanced Fighter, Good Perch, Shadowed
-Level 4: Light on your Toes or Hidden Blade
-Level 8: Destructive Parry or Blind Throw
-Level 12: Nightstalker or Unencumbered
-Level 16: Double Strike or Twin Shot
-Level 20: Blessing of the Night or Escape of the Crow
-
-**Thief**
----------
-Primary: Dex
-Recommended Secondary: Sur
-Items: Clothes, crowbar, dagger, small bow, 20 arrows, lockpicking kit or Standard Kit, 100 gold
-Training: Small melee, Small bows, Deception, Freerunning or Stealth, Street Smarts
-Perks: Nimble, Shadowed, Sticky Fingers
-Level 4: Dual Wield or Deep Pockets
-Level 8: Lightning Reflexes or Fadeout
-Level 12: Catch and Twist or Tackle
-Level 16: Poisoned Weapon or Sidestep
-Level 20: Nightstalker or Blessing of the Night
-
-**Coroner**
------------
-Primary: LM
-Recommended Secondary: DM
-Items: Small Melee, Leather Armor, 150 gold, standard kit or doctor kit
-Training: Light - Health, Dark - Necrosis, Small Melee, Light Armor, Poison Resist
-Perks: Magical Ability, Improved Medicine, Necrotic Touch
-Level 4: Level 4 Spell or Ethereal
-Level 8: Level 8 Spell or Backup Weapon
-Level 12: Level 12 Spell or Medical Bolts
-Level 16: Level 16 Spell or Ripper
-Level 20: Level 20 Spell or Invincible
-
-**Medic**
----------
-Primary: LM
-Recommended Secondary: Wit
-Items: Heater Shield, Leather Armor, 150 gold, standard kit or doctor kit
-Training: Book - Biology, Light - Health, Heater Shield, Light Armor, Poison Resist
-Perks: Magical Ability, Improvised Medicine, Healing Touch
-Level 4: Level 4 Spell or Ethereal
-Level 8: Level 8 Spell or Backup Weapon
-Level 12: Level 12 Spell or Medical Bolts
-Level 16: Level 16 Spell or Hearty
-Level 20: Level 20 Spell or Invincible
-
-**Lancer**
-----------
-Primary: Str
-Recommended Secondary: Hea
-Items: Heater Shield, Reinforced L Armor, Large Melee, Small Melee, 100 Gold, Standard Kit
-Training: Stamina, Brute Force, Large Melee, Medium Armor, Heater Shields
-Perks: Challenge, Sidestep, Perfect Fit
-Level 4: Double Strike or Heavy Strike
-Level 8: Armor Breaker or Firm Grip
-Level 12: Pointy Wall or Shield Bash
-Level 16: Hearty or Catch and Twist
-Level 20: Last Bastion or Invincible
-
-**Spellsword**
---------------
-Primary: Str
-Recommended Secondary: Wit/LM/DM
-Items: Reinforced L Armor, Melee, 150 gold, standard kit
-Training: Book - Force or Light - Air or Light - Water or Dark - Cold, Large Melee, Medium Armor, Brute Force
-Perks: Magical Ability, Challenge, Ethereal
-Level 4: Level 4 Spell or Dual Wield
-Level 8: Level 8 Spell or Perfect Fit
-Level 12: Level 12 Spell or Firm Grip
-Level 16: Level 16 Spell or Heavy Strike
-Level 20: Level 20 Spell or Hearty
 
 **Book mage**
 -------------
 Primary: Wit
+
 Recommended Secondary: LM/DM
+
 Items: Clothes, 200 gold, Amulet, Dagger Magical Focus, Spell kit, Hip pouch
+
 Training: 4 x magical skills (of choice), History
+
 Perks: Magical Ability, Enhanced Spellcasting, Ethereal
+
 Level 4: Level 4 Spell or Gifted
+
 Level 8: Level 8 Spell and Level 4 Spell
+
 Level 12: Level 12 Spell and Level 8 Spell
+
 Level 16: Level 16 Spell and Level 12 Spell (Replaces one Level 4 spell)
+
 Level 20: Level 20 Spell and Level 16 Spell (Replaces one Level 8 spell)
 
-**Swordmage**
+**Concocter**
 -------------
+
 Primary: Wit
+
 Recommended Secondary: Dex
-Items: Reinforced L Armor, 200 gold, Standard Kit or Spell Kit
-Training: Book - Force, Book - (choice), Large Melee, Medium Armor, Stealth
-Perks: Magical Ability, Dual Wield, Nimble
-Level 4: Level 4 Spell or Quick Casting
-Level 8: Level 8 Spell or Destructive Parry
-Level 12: Level 12 Spell or Catch and Twist
-Level 16: Level 16 Spell or Ethereal
-Level 20: Level 20 Spell or Improved Spell Armor
 
-**Flesh Render**
-----------------
-Primary: DM
-Recommended Secondary: Dex
-Items: Clothes, 200 gold, Dagger, Spell Kit or Standard kit
-Training: 3 x Dark - (of choice), Small Melee, Poison Resist
-Perks: Magical Ability, Enhanced Spellcasting, Ripper
-Level 4: Level 4 Spell and Level 1 Spell
-Level 8: Level 8 Spell and Level 4 Spell
-Level 12: Level 12 Spell and Level 8 Spell
-Level 16: Level 16 Spell and Level 12 Spell (Replaces one Level 4 spell)
-Level 20: Level 20 Spell and Level 16 Spell (Replaces one Level 8 spell)
+Items: Leather armor, Magic focus, Small Crossbow, Quiver, 20 Bolts, Standard kit or Spell Kit, 100 gold, Small Melee
 
-**Resurrector**
----------------
-Primary: DM
-Recommended Secondary: Cha
-Items: Reinforced L Armor, Small Melee, 150 gold, Small thrown, Spell
-Kit or Standard Kit
-Training: Dark - Resurrection, Dark - Necrotic, Small Melee, Small thrown, Medium armor
-Perks: Magical Ability, Conjuror, Ripper
-Level 4: Level 4 Spell or Fearsome Summon
-Level 8: Level 8 Spell or Bone Breaker
-Level 12: Level 12 Spell or In Tune
-Level 16: Level 16 Spell or Necrotic Touch
-Level 20: Level 20 Spell or Reversal
+Training: Book - Enchantment, Book - Biology, Small Melee, Medium Armor, Small Crossbow
 
-**Juggernaut**
---------------
-Primary: LM/DM
-Recommended Secondary: Str
-Items: Heater shield, Plate Mail, Melee, 100 gold, Standard Kit or Spell Kit
-Training: Shields, All Melee, Armor, Dark - Lightning and Necrosis or Light - Earth, Water
-Perks: Magical Ability, Shield Bash, Ethereal
-Level 4: Level 4 Spell or Challenge
-Level 8: Level 8 Spell or Improved Spell Armor
-Level 12: Level 12 Spell or Firm Grip
-Level 16: Level 16 Spell or Destructive Parry
-Level 20: Level 20 Spell or Heavy Strike
+Perks: Magical Ability, Improved Armor, Improvised medicine
 
-**Titan**
----------
-Primary: LM/DM
-Recommended Secondary: Hea
-Items: Tower shield, Plate Mail, Melee, 100 gold, Standard Kit or Spell Kit
-Training: Shields, All Melee, Armor, Dark - Lightning and Necrosis or
-Light - Earth, Water
-Perks: Magical Ability, Improved Spell Armor, Challenge
-Level 4: Level 4 Spell or Hearty
-Level 8: Level 8 Spell or Last Ditch
-Level 12: Level 12 Spell or Last Bastion
-Level 16: Level 16 Spell or Shield Bash
+Level 4: Level 4 Spell or Mobile Brewery
+
+Level 8: Level 8 Spell or Medical Bolts
+
+Level 12: Level 12 Spell or Repeater
+
+Level 16: Level 16 Spell or Speed-loader
+
+Level 20: Level 20 Spell or Improved Crossbow
+
+**Coroner**
+-----------
+Primary: LM
+
+Recommended Secondary: DM
+
+Items: Small Melee, Leather Armor, 150 gold, standard kit or doctor kit
+
+Training: Light - Health, Dark - Necrosis, Small Melee, Light Armor, Poison Resist
+
+Perks: Magical Ability, Improved Medicine, Necrotic Touch
+
+Level 4: Level 4 Spell or Ethereal
+
+Level 8: Level 8 Spell or Backup Weapon
+
+Level 12: Level 12 Spell or Medical Bolts
+
+Level 16: Level 16 Spell or Ripper
+
 Level 20: Level 20 Spell or Invincible
 
-**Noble**
+**Druid**
 ---------
-Primary: Cha
-Recommended Secondary: Str
-Items: Fancy clothes, 300 gold, 2 one-handed bladed melee weapons, hip pouch.
-Training: Small melee (bladed), Light armor, Art, History, Speechcraft
-Perks: Unencumbered, Silver Tongue, Fencer
-Level 4: Light on your toes or Natural Armor
-Level 8: Finesse or Lightning Reflexes
-Level 12: Double Strike or Social Butterfly
-Level 16: Forked Tongue or SIdestep
-Level 20: Royal Order or Crown Breaker
-
-**Rogue**
----------
-Primary: Cha
-Recommended Secondary: Dex
-Items: 100 gold, clothes, 1 Small melee, 1 small bow, 20 arrows, Shoulder bag
-Training: Small melee, Light armor, Deception, Search, Stealth
-Perks: Silver Tongue, Nimble, Sprinter
-Level 4: Palmed Weapon or Lightning Reflexes
-Level 8: Hidden Blade or Dual Wield
-Level 12: Forked Tongue or Shadowed
-Level 16: Catch and Twist or Good Perch
-Level 20: Master of Redirection or Impeccable takedown
-
-**Enlightened**
----------------
 Primary: Sur
-Recommended Secondary: Wit
-Items: Clothes, 20 gold, amulet, standard kit
-Training: Book - Force, Small Melee, History, Small thrown, Exploration
-Perks: Unarmed, Instinctual Blows, Magical Ability
-Level 4: Level 4 Spell or Brute Magic
-Level 8: Level 8 Spell or Deflection
-Level 12: Level 12 Spell or Storm of Blows
-Level 16: Level 16 Spell or Redirection
-Level 20: Level 20 Spell or Wall of Palms
 
-**Monk**
---------
-Primary: Sur
-Recommended Secondary: Str
-Items: Clothes, 20 gold, amulet, standard kit
-Training: Stamina, History, Small melee, Small thrown, Freerunning
-Perks: Unarmed, Sprinter, Instinctual Blows
-Level 4: Blind Throw or Hemmed in
-Level 8: Deflection or Escape of the Snake
-Level 12: Storm of Blows or Tackle
-Level 16: Redirection or Footsweep
-Level 20: Wall of Palms or Cloud of Blades
+Recommended Secondary: LM
+
+Items: Leather Armor, Staff or Shard, 50 gold, Standard Kit and Spell Kit
+
+Training: Magical Ability, Animal handling, Wilderness, Light - Nature, Light armor
+
+Perks: Magical Ability, Conjuror, Healing Touch
+
+Level 4: Level 4 Spell or Floral Reinforcement
+
+Level 8: Level 8 Spell or Healing Touch
+
+Level 12: Level 12 Spell or In Tune
+
+Level 16: Level 16 Spell or Poisoned Weapon
+
+Level 20: Level 20 Spell or Garden of Pain
 
 **Elementalist**
 ----------------
 Primary: LM
+
 Recommended Secondary: Dex
+
 Items: Clothes, Dagger, Instrument, 100 gold, Spell kit or standard kit
+
 Training: 3 x Light (of choice), Small Melee, Small Thrown
+
 Perks: Magical Ability, Enhanced Spellcasting, Infuse
+
 Level 4: Level 4 Spell and Level 1 Spell
+
 Level 8: Level 8 Spell and Level 4 Spell
+
 Level 12: Level 12 Spell and Level 8 Spell
+
 Level 16: Level 16 Spell and Level 12 Spell (Replaces one Level 4 spell)
+
 Level 20: Level 20 Spell and Level 16 Spell (Replaces one Level 8 spell)
+
+**Enlightened**
+---------------
+Primary: Sur
+
+Recommended Secondary: Wit
+
+Items: Clothes, 20 gold, amulet, standard kit
+
+Training: Book - Force, Small Melee, History, Small thrown, Exploration
+
+Perks: Unarmed, Instinctual Blows, Magical Ability
+
+Level 4: Level 4 Spell or Brute Magic
+
+Level 8: Level 8 Spell or Deflection
+
+Level 12: Level 12 Spell or Storm of Blows
+
+Level 16: Level 16 Spell or Redirection
+
+Level 20: Level 20 Spell or Wall of Palms
+
+**Flesh Render**
+----------------
+Primary: DM
+
+Recommended Secondary: Dex
+
+Items: Clothes, 200 gold, Dagger, Spell Kit or Standard kit
+
+Training: 3 x Dark - (of choice), Small Melee, Poison Resist
+
+Perks: Magical Ability, Enhanced Spellcasting, Ripper
+
+Level 4: Level 4 Spell and Level 1 Spell
+
+Level 8: Level 8 Spell and Level 4 Spell
+
+Level 12: Level 12 Spell and Level 8 Spell
+
+Level 16: Level 16 Spell and Level 12 Spell (Replaces one Level 4 spell)
+
+Level 20: Level 20 Spell and Level 16 Spell (Replaces one Level 8 spell)
+
+**Guard**
+---------
+Primary: Dex
+
+Recommended Secondary: Hea
+
+Items: Studded armor, Large Crossbow, 50 bolts, Quiver, Small melee, 100 gold, Standard kit
+
+Training: Light Armor, Crossbows, Small melee, Stamina, Street smarts
+
+Perks: Speed-loading, Improved Armor, Fencer
+
+Level 4: Finesse or Steady Hands
+
+Level 8: Improved Crossbow or Shield Bash
+
+Level 12: Combat Maneuvers or Hypertension
+
+Level 16: Armor Breaker or Backup Weapon
+
+Level 20: Gatling Mod or Sidestep
+
+**Juggernaut**
+--------------
+Primary: LM/DM
+
+Recommended Secondary: Str
+
+Items: Heater shield, Plate Mail, Melee, 100 gold, Standard Kit or Spell Kit
+
+Training: Shields, All Melee, Armor, Dark - Lightning and Necrosis or Light - Earth, Water
+
+Perks: Magical Ability, Shield Bash, Ethereal
+
+Level 4: Level 4 Spell or Challenge
+
+Level 8: Level 8 Spell or Improved Spell Armor
+
+Level 12: Level 12 Spell or Firm Grip
+
+Level 16: Level 16 Spell or Destructive Parry
+
+Level 20: Level 20 Spell or Heavy Strike
+
+**Lancer**
+----------
+Primary: Str
+
+Recommended Secondary: Hea
+
+Items: Heater Shield, Reinforced L Armor, Large Melee, Small Melee, 100 Gold, Standard Kit
+
+Training: Stamina, Brute Force, Large Melee, Medium Armor, Heater Shields
+
+Perks: Challenge, Sidestep, Perfect Fit
+
+Level 4: Double Strike or Heavy Strike
+
+Level 8: Armor Breaker or Firm Grip
+
+Level 12: Pointy Wall or Shield Bash
+
+Level 16: Hearty or Catch and Twist
+
+Level 20: Last Bastion or Invincible
+
+**Medic**
+---------
+Primary: LM
+
+Recommended Secondary: Wit
+
+Items: Heater Shield, Leather Armor, 150 gold, standard kit or doctor kit
+
+Training: Book - Biology, Light - Health, Heater Shield, Light Armor, Poison Resist
+
+Perks: Magical Ability, Improvised Medicine, Healing Touch
+
+Level 4: Level 4 Spell or Ethereal
+
+Level 8: Level 8 Spell or Backup Weapon
+
+Level 12: Level 12 Spell or Medical Bolts
+
+Level 16: Level 16 Spell or Hearty
+
+Level 20: Level 20 Spell or Invincible
+
+**Monk**
+--------
+Primary: Sur
+
+Recommended Secondary: Str
+
+Items: Clothes, 20 gold, amulet, standard kit
+
+Training: Stamina, History, Small melee, Small thrown, Freerunning
+
+Perks: Unarmed, Sprinter, Instinctual Blows
+
+Level 4: Blind Throw or Hemmed in
+
+Level 8: Deflection or Escape of the Snake
+
+Level 12: Storm of Blows or Tackle
+
+Level 16: Redirection or Footsweep
+
+Level 20: Wall of Palms or Cloud of Blades
+
+**Noble**
+---------
+Primary: Cha
+
+Recommended Secondary: Str
+
+Items: Fancy clothes, 300 gold, 2 one-handed bladed melee weapons, hip pouch.
+
+Training: Small melee (bladed), Light armor, Art, History, Speechcraft
+
+Perks: Unencumbered, Silver Tongue, Fencer
+
+Level 4: Light on your toes or Natural Armor
+
+Level 8: Finesse or Lightning Reflexes
+
+Level 12: Double Strike or Social Butterfly
+
+Level 16: Forked Tongue or SIdestep
+
+Level 20: Royal Order or Crown Breaker
 
 **Performer**
 -------------
 Primary: LM
+
 Recommended Secondary: Cha
+
 Items: Clothes, Dagger, Instrument, Magic Focus, 100 gold, Hip Pouch
+
 Training: 2 x Light (of choice), Instrument, Small Melee, perform
+
 Perks: Magical Music, Trickster, Magical Ability
+
 Level 4: Level 4 Spell or Entertainer’s disposition
+
 Level 8: Silver Tongue or Level 8 Spell
+
 Level 12: Social Butterfly or Level 12 Spell
+
 Level 16: Forked Tongue or Level 16 Spell
+
 Level 20: Puppetmaster or Level 20 Spell
+
+**Ranger**
+----------
+Primary: Dex
+
+Recommended Secondary: Sur
+
+Items: Leather armor, Large Bow, 50 arrows, Quiver, 2 x Small melee, 50 gold, Standard kit
+
+Training: Light armor, Bows, small melee, Exploration, Wilderness
+
+Perks: Nimble, Dual Wield, Good Perch
+
+Level 4: Combat Maneuvers or Walker of all Paths
+
+Level 8: Fadeout or Rope Arrow
+
+Level 12: Double Shot or Double Strike
+
+Level 16: Steady Hands or Poison Blade
+
+Level 20: Skyshot or Pointy Wall
+
+**Resurrector**
+---------------
+Primary: DM
+
+Recommended Secondary: Cha
+
+Items: Reinforced L Armor, Small Melee, 150 gold, Small thrown, Spell
+
+Kit or Standard Kit
+
+Training: Dark - Resurrection, Dark - Necrotic, Small Melee, Small thrown, Medium armor
+
+Perks: Magical Ability, Conjuror, Ripper
+
+Level 4: Level 4 Spell or Fearsome Summon
+
+Level 8: Level 8 Spell or Bone Breaker
+
+Level 12: Level 12 Spell or In Tune
+
+Level 16: Level 16 Spell or Necrotic Touch
+
+Level 20: Level 20 Spell or Reversal
+
+**Rogue**
+---------
+Primary: Cha
+
+Recommended Secondary: Dex
+
+Items: 100 gold, clothes, 1 Small melee, 1 small bow, 20 arrows, Shoulder bag
+
+Training: Small melee, Light armor, Deception, Search, Stealth
+
+Perks: Silver Tongue, Nimble, Sprinter
+
+Level 4: Palmed Weapon or Lightning Reflexes
+
+Level 8: Hidden Blade or Dual Wield
+
+Level 12: Forked Tongue or Shadowed
+
+Level 16: Catch and Twist or Good Perch
+
+Level 20: Master of Redirection or Impeccable takedown
+
+**Shaman**
+----------
+Primary: Sur
+
+Recommended Secondary: Str
+
+Items: Studded L Armor, 50 gold, Standard Kit
+
+Training: Animal handling. Exploration, Wilderness, Medium Armor, Large Melee
+
+Perks: Friend to Animals, Animal tongue, Animal Companion
+
+Level 4: Army of the Wild or Walker of all Paths
+
+Level 8: Fighting Buddies or Shared Senses
+
+Level 12: Beast Armor or Swap Out
+
+Level 16: In Tune or Hunting Party
+
+Level 20: Fury of Nature or Everlasting
+
+**Spellsword**
+--------------
+Primary: Str
+
+Recommended Secondary: Wit/LM/DM
+
+Items: Reinforced L Armor, Melee, 150 gold, standard kit
+
+Training: Book - Force or Light - Air or Light - Water or Dark - Cold, Large Melee, Medium Armor, Brute Force
+
+Perks: Magical Ability, Challenge, Ethereal
+
+Level 4: Level 4 Spell or Dual Wield
+
+Level 8: Level 8 Spell or Perfect Fit
+
+Level 12: Level 12 Spell or Firm Grip
+
+Level 16: Level 16 Spell or Heavy Strike
+
+Level 20: Level 20 Spell or Hearty
+
+**Swordmage**
+-------------
+Primary: Wit
+
+Recommended Secondary: Dex
+
+Items: Reinforced L Armor, 200 gold, Standard Kit or Spell Kit
+
+Training: Book - Force, Book - (choice), Large Melee, Medium Armor, Stealth
+
+Perks: Magical Ability, Dual Wield, Nimble
+
+Level 4: Level 4 Spell or Quick Casting
+
+Level 8: Level 8 Spell or Destructive Parry
+
+Level 12: Level 12 Spell or Catch and Twist
+
+Level 16: Level 16 Spell or Ethereal
+
+Level 20: Level 20 Spell or Improved Spell Armor
+
+**Thief**
+---------
+Primary: Dex
+
+Recommended Secondary: Sur
+
+Items: Clothes, crowbar, dagger, small bow, 20 arrows, lockpicking kit or Standard Kit, 100 gold
+
+Training: Small melee, Small bows, Deception, Freerunning or Stealth, Street Smarts
+
+Perks: Nimble, Shadowed, Sticky Fingers
+
+Level 4: Dual Wield or Deep Pockets
+
+Level 8: Lightning Reflexes or Fadeout
+
+Level 12: Catch and Twist or Tackle
+
+Level 16: Poisoned Weapon or Sidestep
+
+Level 20: Nightstalker or Blessing of the Night
+
+**Tinkerer**
+------------
+
+Primary: Wit
+
+Recommended Secondary: Cha
+
+Items: Leather armor, Magic focus, Small Melee Quiver, 20 bolts, Standard kit or Smithing kit
+
+Training: Book - Enchantment, Book - Force, Book - (of choice), Light armor, Small Melee
+
+Perks: Magical Ability, Conjuror, Backup Weapon
+
+Level 4: Level 4 Spell or Blueprints
+
+Level 8: Level 8 Spell or Steam Power
+
+Level 12: Level 12 Spell or Mechanic
+
+Level 16: Level 16 Spell or Mobile Brewery
+
+Level 20: Level 20 Spell or In Tune
+
+**Titan**
+---------
+Primary: LM/DM
+
+Recommended Secondary: Hea
+
+Items: Tower shield, Plate Mail, Melee, 100 gold, Standard Kit or Spell Kit
+
+Training: Shields, All Melee, Armor, Dark - Lightning and Necrosis or
+
+Light - Earth, Water
+
+Perks: Magical Ability, Improved Spell Armor, Challenge
+
+Level 4: Level 4 Spell or Hearty
+
+Level 8: Level 8 Spell or Last Ditch
+
+Level 12: Level 12 Spell or Last Bastion
+
+Level 16: Level 16 Spell or Shield Bash
+
+Level 20: Level 20 Spell or Invincible
+
+**Wildman**
+-----------
+Primary: Str
+
+Recommended Secondary: Sur
+
+Items: Melee weapon, Plate Mail, 50 gold, Standard Kit.
+
+Training: All Melee, Heavy Armor, Brute Force, Freerunning, Wilderness
+
+Perks: Hearty, Tackle, Animal Companion
+
+Level 4: Hemmed in or Smasher
+
+Level 8: Footsweep or Friend to Animals
+
+Level 12: Armor Breaker or Skull Crusher
+
+Level 16: Fighting Buddies or Swap Out
+
+Level 20: Rage or Fury of Nature
 
 ***Perks:***
 ============

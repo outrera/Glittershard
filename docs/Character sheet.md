@@ -1,19 +1,19 @@
-**Main**
+***Main***
+==========
+### Name:
 
-Name:
+### Age:
 
-Age:
+### Gender:
 
-Gender:
+### Race:
 
-Race:
+### Alignment:
 
-Alignment:
-
-Class:
+### Class:
 
 **Stats:**
-
+----------
 Charm:
 
 Dark Magic:
@@ -31,7 +31,7 @@ Survival:
 Wit:
 
 **Skills:**
-
+-----------
 Animal handling:
 
 Artistry:
@@ -93,13 +93,13 @@ Streetsmarts:
 Wilderness:
 
 **Items:**
-
+----------
 Gold:
 
 Pennies:
 
 **Weapons:**
-
+------------
 Melee1:
 
 Melee2:
@@ -109,7 +109,7 @@ Ranged1:
 Ranged2:
 
 **Armor and wearables:**
-
+------------------------
 Body:
 
 Head:
@@ -125,7 +125,7 @@ Neck:
 Feet:
 
 **Rested State:**
-
+-----------------
 Max HP:
 
 Max Recovery:
@@ -143,7 +143,7 @@ Size:
 Max Magical Stamina:
 
 **Current State:**
-
+------------------
 HP:
 
 Overheal:
@@ -155,11 +155,13 @@ Weight:
 Magical Stamina:
 
 **Experience:**
+---------------
 
 **Magic:**
-
+----------
 Magic stamina:
 
 **Traits:**
-
+-----------
 **Perks:**
+----------

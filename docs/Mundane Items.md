@@ -5,15 +5,20 @@
 
 **Carrying Cap:** Without any bags, only gold and what can be worn or carried in the entity’s hands can be brought along. Bags can be bought to allow for more items to be carried, but be mindful of the weight limit. Items of negligible weight (0) can be carried in pockets without penalty. Only one potion may be carried in a pocket.
 The max weight an entity can hold without incurring a movement speed penalty is:
+
 Max weight = 50 + 10 \* Str
+
 When over this number, speed is reduced by one for every 10 pounds over max weight. Str and Dex take a -2 penalty.
 
-**Equipment:** Every entity can put on some gear specific to body type. Shoulder pouches are the most versitile.
+**Equipment:** Every entity can put on some gear specific to body type. Shoulder pouches are the most versitile. 
 Only one ring can be worn on each hand due to magical interference.
 
 **Food:** Food can be filling, satiating, or mediocre.
+
 Filling (5 gold, 2 lbs): Creature does not need to eat for 8 hours of rigorous activity or 12 hours of low level activity
+
 Satiating (2 gold, 1 lb): Creature does not need to eat for 4 hours of rigorous activity or 6 hours of low level activity
+
 Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous activity or 3 hours of low level activity
 
 ***Melee weapons:***
@@ -88,9 +93,9 @@ Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous
 
 ***Armor:***
 ------------
-
 **Armor:** Damage absorption. Reduces the damage taken from a physical attack that connects by the same number of points as the armor provides. Shields also provide armor.
-| Item            | Price   | Weight   | Armor rating   | Class    | Dex Penalty
+
+| Item            | Price   | Weight   | Armor_rating   | Class    | Dex Penalty
 | --------------- | ------- | -------- | -------------- | -------- | -------------
 | Clothes         | 0       | 0        | 0              | None     | 0
 | Fancy clothes   | 50      | 4        | 0              | None     | 0
@@ -102,7 +107,8 @@ Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous
 | Scalemail       | 60      | 25       | +4             | Heavy    | -3
 
 **Shields:**
-| Item            | Price   | Weight   | Handed            | Armor rating   | Description
+
+| Item            | Price   | Weight   | Handed            | Armor_rating   | Description
 | --------------- | ------- | -------- | ----------------- | -------------- | ----------------------
 | Buckler         | 5       | 5        | 0 (Worn on arm)   | +1             | Small round shield
 | Heater shield   | 15      | 10       | 1                 | +3             | Large, covers body
@@ -167,7 +173,9 @@ Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous
 ***Medical items:***
 --------------------
 **Healing:** Healing comes in two forms: Magical and Mundane
+
 Magical healing: Adds amount of HP specified by treatment, removes recovery point. See Spell List for potions and healing spells.
+
 Mundane healing: Takes time, but doesn't drain recovery points, and can be used as much as one would like.
 
 **Overhealing:** When being healed, any healing done over the healed entity’s max health is divided by two and added on top of the cap. Overhealing is reduced by one hit point per round, and is subtracted from health first.
