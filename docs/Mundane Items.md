@@ -208,3 +208,18 @@ Mundane healing: Takes time, but doesn't drain recovery points, and can be used 
 | Sapphires            | 150     | 0        | 
 | Wagon wheel          | 5       | 8        | A wheel for a wagon
 | Wagon                | 50      | 150      | A wagon to carry items and the party
+
+***Shop types:***
+-----------------
+- Alchemist: Sells potions and potion ingredients
+- Blacksmith: Sells most weapons and heavy armor
+- Bookstore: Sells maps and books
+- Bower: Sells bows, crossbows, and ammo for both
+- Humanoid market: Sells slaves
+- Inn: Place to sleep and buy food
+- Jeweler's: Buy and sell precious stones.
+- Market: Place to buy food (Subdivisions of markets?)
+- Pet store: Buy mundane animals
+- Supply store: Buy Adventure gear
+- Tanner: Sells light armors, whip, rope
+- Wizard: Magical components, enchantment of items, magical items
