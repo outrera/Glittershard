@@ -79,6 +79,7 @@ All races under a sub-category get the sub-category bonuses. Example(Angilic rac
 | Cherubs              | +1 LM, small, Flight                                 | 15
 | Divines              | +2 LM, Cannot use DM, Naturally Lucky                | 30
 | Winged Folk          | +1 Cha, Flight                                       | 20
+| Valkyrie             | +1 Str, +1 Cha                                       | 25
 |                      |                                                      |  
 | Beastial             | (+2 movement speed)                                  | 
 | Centaur              | +1 Str, +1 Hea, large                                | 35
@@ -153,21 +154,49 @@ Giant spider
 
 Salamander
 
+Basilisk
+
+Cerberus
+
+Chimera
+
+Cockatrice
+
+Echidna
+
+Gorgon
+
+Griffin
+
+Manticore
+
+Orthros
+
+Pegasus
+
+Pheonix
+
+Unicorn
+
 ***Sentient Beings:***
 ----------------------
 Goblinoids
+- Goblins
+- Trolls
+- Ogres
+- Cyclops
+- Hobgoblins
 
 Dragons
+- Young
+- Adult
+- Old
 
-Trolls
-
-Ogres
+Mermaids/Mermen
 
 Wolfmen - Wolf/human
 
 Pantherlilys - Pather/human
-
-Werebeasts
 
 ***Enchanted Objects:***
 ------------------------
@@ -196,9 +225,8 @@ plants
 -   Fly Trap
 
 Elemental spirits - Fire, Earth, Water etc
-
-Fey
-Naga
+- Fey
+- Naga
 
 
 ***Undead:***
@@ -208,6 +236,7 @@ Naga
 - Wraith
 - Shadowbinder
 - Restless one
+- Banshee
 
 **Animated Skeletons** Skeletons that have been resurrected magically with no will of their own. They continue to carry the weapons they had in life.
 The diffecernce between a skeleton and a non-sapient Lich is the amount of magical energy they posses.
@@ -294,13 +323,15 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 
 **Fear:** Target of fear loses attack action for 10 seconds. 1d20 + Speechcraft vs 1d20 + Judgement
 
+**Frozen:** Automatically bound. Must make a trength check to break free.
+
 **Infection:**
 | Name              | Description
 | ----------------- | -----------------------------------------
 | Vampireism        | Give the vampirism trait to the victim.
 | Morpher's Curse   | Forces an entity to shapeshift into a random race every hour until cured.
-| Flu               | 
-| Wracking Cough    |
+| Flu               | All Skills gain a penalty of -1 until the effect is cured.
+| Wracking Cough    | Each time an attack is made, roll a d6. If it's a 6, accuracy is halved for that attack.
   
 
 **Invisibile:** While invisible, an entity cannot be seen. They are still physical, can make noise, and be attacked by creatures with Enhanced senses.
@@ -311,9 +342,11 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 48-192 hours: Health does not come back after a long rest
 192+ hours: Creature starves to death
 
+**On Fire:** When burning, take 1d6 fire damage per turn, negates armor.
+
 **Paralyzed:** A paralyzed entity cannot move or take actions. Refer to the cause of effect for exit condition
 
-**Poisoned:** Poisons cause damage over time. A heal check of poison level + 1d10 (rolled when poison is applied) can be passed to get rid of the poison.
+**Poisoned:** Poisons cause damage over time based on poison type. A heal check of poison level + 1d10 (rolled when poison is applied) can be passed to get rid of the poison.
 
 **Sleep Deprivation:** If not long rest is taken in a 48 hour period, all stats fall by 1 per 48 hours unrested. Stats reset when a long rest is taken.
 
@@ -321,10 +354,3 @@ the entity’s ability to shapeshift. Shapeshifts do not change the size of enti
 
 **Vampirism:** This disease causes the entity to need to suck blood from a natural or fey creature every 24 hours or suffer -1 penalty to all stats. If one target is drained three days in a row, that entity becomes a zombie.
 If creature is elegible to become a vampire and the vampirism is not removed within a week, creature become vampire in full.
-
-***
-TODO:
-***
-- Monster creation steps
-- How to build fights
-- Infections

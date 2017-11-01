@@ -35,10 +35,15 @@ class Shop:
         x, y, h, w = positional setup
     """
     def __init__(self, y, x, h, w, color, name, shoptype, player):
-        menu = Menu(y, x, h, w, color, name)
+        """Defines shop and sets up items"""
+        self.menu = Menu(y, x, h, w, color, name)
         self.shoptype = shoptype
         self.player = player
+        self.items = []
         if shoptype is ALCHEMIST:
+            #Get list of all items to be sold here, return name strings
+            #Add all items than can be purchased at Alchemist to menu
+            #Do this for all shops
         elif shoptype is BLACKSMITH:
         elif shoptype is BOOKSTORE:
         elif shoptype is BOWER:
@@ -51,7 +56,22 @@ class Shop:
         elif shoptype is TANNER:
         elif shoptype is WIZARD:
         else:
+        
+    def run(Self):
+        """Runs the given shop."""
+        item = itemList.get(self.items[self.menu.run()])
+        if player.gold > item.attr["price"]:
+            player.gold = player.gold - item.attr["price"]
+            return item
+        else:
+            #TODO Tell player not enough money 
                 
+                
+    def addItem(self, item):
+        
+    
+    def rmItem(self, item):
+    
 #test code
 if __name__ == "__main__":
     #init

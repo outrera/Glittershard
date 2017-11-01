@@ -62,23 +62,45 @@ Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous
 | Large Crossbow     | 30      | 6.5      | 2       | 75      | +2         | 1d12     | 
 | Throwing Needles   | 1       | 0        | 1       | 20      | +2         | 1d4      | 
 | Throwing Stars     | 1       | 0        | 1       | 20      | +1         | 1d4      | Restricts movement
-| Throwing Axes      | 3       | 1        | 1       | 15      | 0          | 1d6      | AP
+| Hand Axes          | 3       | 1        | 1       | 15      | 0          | 1d6      | AP
 | Dagger             | 1       | 0.5      | 1       | 10      | +1         | 1d4      | Also Melee
 
 ***Weapon Properties:***
 
 **Armor Piercing (AP):** If a weapon is armor piercing, it ignores armor entirely.
 
+**Blade:** Cuts
+
+**Blunt:** Smashes
+
+**Can Negate Locks:** Allows the user to open locked doors with half difficulty.
+
+**Magical:** Can be used to cast spells.
+
+**Restricts Movement:** Forces the target to stop moving on a successful attack.
+
+**Slow:** Takes a slow action to use
+
+**Small:** Easy to hide and easy to handle.
+
+**Thrown:** Can be thrown to inflict damage.
+
+**+1 Range:** Can attack entities up to 10 feet away
+
 ***Ranged Ammo:***
 ------------------
 | Item               | Price       | Description
 | ------------------ | ----------- |  --------------------------------------------------------------------------------------------------------------
 | Quiver             | 5           | A quiver to hold ammunition. Can be slung from hip, around back, or attached to backpack. Holds 15 at a time
-| Arrow - standard   | 0.1/arrow   | An arrow for all bows. Stored in quiver for quick access
+| Arrow - Standard   | 0.1/arrow   | An arrow for all bows. Stored in quiver for quick access
 | Arrow - Vicious    | 0.5/arrow   | An arrow that causes 3 extra damage
 | Arrow - Flaming    | 1/arrow     | An arrow that magically catches fire before being shot. Cannot be recovered.
-| Crossbow Bolt      | 0.1/bolt    | A bolt for all crossbows. Stored in quizer for quick access
+| Arrow - Ice        | 1/arrow     | An arrow that magically turns whatever it hits to ice. Cannot be recovered.
+| Arrow - Water      | 1/arrow     | An arrow that magically turns into a gushing stream. Cannot be recovered.
+| Arrow - Necrotic   | 1/arrow     | An arrow that magically decays whatever it hits. Cannot be recovered.
+| Crossbow Bolt      | 0.1/bolt    | A bolt for all crossbows. Stored in quiver for quick access.
 | C. Bolt - AP       | 1/bolt      | A bolt that negates armor.
+| C. Bolt - Heavy    | 1/bolt      | A bolt that can nail someone to a wall.
 
 ***Magic focuses:***
 --------------------
@@ -99,12 +121,12 @@ Mediocre (1 gold, 1/2 lb): Creature does not need to eat for 2 hours of rigorous
 | --------------- | ------- | -------- | -------------- | -------- | -------------
 | Clothes         | 0       | 0        | 0              | None     | 0
 | Fancy clothes   | 50      | 4        | 0              | None     | 0
-| Leather         | 10      | 2        | +1             | Light    | -1
+| Leather         | 10      | 2        | +1             | Light    | 0
 | Studded L       | 20      | 10       | +2             | Light    | -1
 | Reinforced L    | 25      | 15       | +3             | Medium   | -2
-| Chainmail       | 35      | 25       | +3             | Medium   | -2
+| Chainmail       | 35      | 25       | +3             | Medium   | -1
 | Plate mail      | 40      | 30       | +4             | Heavy    | -3
-| Scalemail       | 60      | 25       | +4             | Heavy    | -3
+| Scalemail       | 60      | 25       | +4             | Heavy    | -2
 
 **Shields:**
 
@@ -215,7 +237,7 @@ Mundane healing: Takes time, but doesn't drain recovery points, and can be used 
 - Blacksmith: Sells most weapons and heavy armor
 - Bookstore: Sells maps and books
 - Bower: Sells bows, crossbows, and ammo for both
-- Humanoid market: Sells slaves
+- Humanoid market: Buy/sell slaves
 - Inn: Place to sleep and buy food
 - Jeweler's: Buy and sell precious stones.
 - Market: Place to buy food (Subdivisions of markets?)

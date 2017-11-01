@@ -3,6 +3,9 @@
 """ itemlist.py
     Contains all items for Glittershard
 """
+
+#TODO Add all items in, see if I can load them from file, Add room keys for inns.
+
 #weapon class
 class weapon:
     def __init__(self):
@@ -27,8 +30,16 @@ class gear:
 class potions:
     def __init__(self):
         self.attr = {}
-    
-#========================================================
+
+def search(itemname = None):
+    """A list of all items. If None is set, returns full list."""
+    if itemname = None:
+        return items
+    elif itemname in items:
+        return self.get(itemname)
+    else:
+        return None
+
 def get(itemName):
     if itemName is "dagger":
         return weapon()
