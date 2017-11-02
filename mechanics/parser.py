@@ -3,6 +3,10 @@
 """ parser.py
     Accepts a string and decides what to do with it. Also takes in the person 
     typing and a list of targets.
+    
+    Author: Jeremy Stintzcum
+    Date last Modified: 10/31/17
+    python ver: 2.7
 """
 import re, curses, curses.panel
 

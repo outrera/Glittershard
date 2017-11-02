@@ -2,7 +2,10 @@
 
 """ entity.py
     Base Class of all moving creatures in Glittershard
-    Creates human by default
+    
+    Author: Jeremy Stintzcum
+    Date last Modified: 10/31/17
+    python ver: 2.7
 """
 import random
 import classList, itemList, raceList, perkList, trainingList, traitList

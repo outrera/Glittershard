@@ -4,18 +4,20 @@
     This program rolls dice and returns a value
     
     Author: Jeremy Stintzcum
-    Date last Modified: 10/15/17
+    Date last Modified: 10/31/17
     python ver: 2.7
 """
 import random, curses, curses.panel
 
 #TODO Move settings to file
 #settings
-BORDER = 0
+BORDER = 1
+WIDTH = 24
+START_Y = 0
+
+#Constants
 DBORDER = 2 * BORDER
-OFFSET = 1 + BORDER
-DOFFSET = 2 * OFFSET
-DIE_ROLLER_WIDTH = 24 + DOFFSET
+DIE_ROLLER_WIDTH = WIDTH + DBORDER
 
 class Roller:
     """ class Roller(stdscr, colorList, loud)
@@ -31,10 +33,10 @@ class Roller:
     def __init__(self, stdscr, color=0, loud=False):
         self.Y, self.X = stdscr.getmaxyx()
         #init vars
-        self.h = self.Y - DBORDER
+        self.h = self.Y
         self.w = DIE_ROLLER_WIDTH
-        self.y = BORDER
-        self.x = self.X - (DIE_ROLLER_WIDTH + DBORDER)
+        self.y = START_Y
+        self.x = self.X - (DIE_ROLLER_WIDTH)
         self.display = []
         self.loud = loud
         self.color = color
@@ -59,16 +61,16 @@ class Roller:
         self.display.reverse()
         for i in range(len(newlist)):
             newlist[i] = "{message: <{width}}".format(message=newlist[i], 
-            width=self.w-DOFFSET)
-            #TODO make the strings auto-wrap when exceeding width of dice bar
+            width=WIDTH)
             self.display.append((newlist[i],color))
         self.display.reverse()
         #remove older entries
-        while len(self.display) >= (self.h-DOFFSET):
+        while len(self.display) >= (self.h-DBORDER):
             self.display.pop()
         #draw the lines in the proper order
         for j in range(len(self.display)):
-            self.window.addstr((self.h-OFFSET-1)-j,OFFSET, self.display[j][0], 
+            #TODO Truncate lines to fit display window if too large. 
+            self.window.addstr((self.h-BORDER-1)-j,BORDER, self.display[j][0], 
             curses.color_pair(self.display[j][1]))
         #update screen
         curses.panel.update_panels()
@@ -83,6 +85,7 @@ class Roller:
             roll: A list of dictionaries as so:
                 dict = {#dice, denom, #keep, keeph, add, who}
         """
+        #TODO Change strings to ints
         #init
         lstring = [] #loud. Always sent to the server
         qstring = [] #quiet

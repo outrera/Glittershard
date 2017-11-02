@@ -1,15 +1,23 @@
 #!/usr/bin/python
 
 """ itemlist.py
-    Contains all items for Glittershard
+    Grabs and works with all items
+    
+    Author: Jeremy Stintzcum
+    Date last Modified: 10/31/17
+    python ver: 2.7
 """
 
-#TODO Add all items in, see if I can load them from file, Add room keys for inns.
+#TODO Add room keys for inns
+#TODO Fix potions
 
 #weapon class
 class weapon:
     def __init__(self):
-        self.attr = {"name":"Dagger", "price":1, "weight":0.5, "acc":1, "die":4, "#ofdie":1, "hand":1, "dtype":"blade", "ratt":True, "matt":True, "size":"small","ap":False, "rnge":1, "slow":False, "brace":False, "binds":False}
+        self.attr = {"name":"Dagger", "price":1, "weight":0.5, "acc":1, "die":4,
+        "#ofdie":1, "hand":1, "dtype":"blade", "ratt":True, "matt":True, 
+        "size":"small","ap":False, "rnge":1, "slow":False, "brace":False, 
+        "binds":False}
 #armor class
 class armor:
     def __init__(self):
@@ -40,6 +48,8 @@ def search(itemname = None):
     else:
         return None
 
+
+#TODO move to INI
 def get(itemName):
     if itemName is "dagger":
         return weapon()
