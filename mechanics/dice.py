@@ -4,20 +4,31 @@
     This program rolls dice and returns a value
     
     Author: Jeremy Stintzcum
-    Date last Modified: 10/31/17
+    Date last Modified: 11/4/17
     python ver: 2.7
 """
 import random, curses, curses.panel
 
-#TODO Move settings to file
 #settings
-BORDER = 1
-WIDTH = 24
-START_Y = 0
+c = ConfigParser.SafeConfigParser()
+if c.read("settings.ini") and c.has_section("dice"):
+    BORDER = c.getint("dice","border")
+    WIDTH = c.getint("dice","width")
+    START_Y = c.getint("dice","starty")
+else:
+    BORDER = 1
+    WIDTH = 24
+    START_Y = 0
 
 #Constants
 DBORDER = 2 * BORDER
 DIE_ROLLER_WIDTH = WIDTH + DBORDER
+NOOFDICE = 0
+DENOMINATION = 1
+KEEPS = 2
+KEEPHIGH = 3
+ADD = 4
+WHO = 5
 
 class Roller:
     """ class Roller(stdscr, colorList, loud)
@@ -85,38 +96,37 @@ class Roller:
             roll: A list of dictionaries as so:
                 dict = {#dice, denom, #keep, keeph, add, who}
         """
-        #TODO Change strings to ints
         #init
         lstring = [] #loud. Always sent to the server
         qstring = [] #quiet
         val = 0
         for i in range(len(roll)):
             #no dice, just a value
-            if roll[i]["denom"] is 0:
-                if roll[i]["add"] == False:
-                    val = val - roll[i]["#dice"]
-                    lstring.append("Subtracting "+str(roll[i]["#dice"]))
-                    qstring.append("Subtracting "+str(roll[i]["#dice"]))
+            if roll[i][DENOMINATION] is 0:
+                if roll[i][ADD] == False:
+                    val = val - roll[i][NOOFDICE]
+                    lstring.append("Subtracting "+str(roll[i][NOOFDICE]))
+                    qstring.append("Subtracting "+str(roll[i][NOOFDICE]))
                 else:
-                    val += roll[i]["#dice"]
-                    lstring.append("Adding "+str(roll[i]["#dice"]))
-                    qstring.append("Adding "+str(roll[i]["#dice"]))
+                    val += roll[i][NOOFDICE]
+                    lstring.append("Adding "+str(roll[i][NOOFDICE]))
+                    qstring.append("Adding "+str(roll[i][NOOFDICE]))
             else: #rolling dice
-                lstring.append("Rolling %sd%s" %(roll[i]["#dice"],
-                    roll[i]["denom"]))
+                lstring.append("Rolling %sd%s" %(roll[i][NOOFDICE],
+                    roll[i][DENOMINATION]))
                 numlist = []
-                for j in range(roll[i]["#dice"]):
-                    numlist.append(random.randint(1,roll[i]["denom"]))
+                for j in range(roll[i][NOOFDICE]):
+                    numlist.append(random.randint(1,roll[i][DENOMINATION]))
                 lstring.append("Results: " + str(numlist))
                 numlist.sort() #Order the rolls from high to low
-                if roll[i]["keeph"] == False:
+                if roll[i][KEEPHIGH] == False:
                     numlist.reverse() #low to high, pop the correct die values
-                    lstring.append("Keeping %s low dice" %(roll[i]["#keep"]))
+                    lstring.append("Keeping %s low dice" %(roll[i][KEEPS]))
                 else:
-                    lstring.append("Keeping %s high dice" %(roll[i]["#keep"]))
+                    lstring.append("Keeping %s high dice" %(roll[i][KEEPS]))
                 #only keep the dice wanted
-                for j in range(roll[i]["#keep"]):
-                    if roll[i]["add"] == False:
+                for j in range(roll[i][KEEPS]):
+                    if roll[i][ADD] == False:
                         val = val - numlist.pop()
                         lstring.append("subtracting")
                     else:
@@ -127,9 +137,9 @@ class Roller:
         qstring.append("Total: " + str(val))
         #update list
         if self.loud:
-            self.updateList(lstring, roll[i]["who"]+1) #+1 is because who starts
+            self.updateList(lstring, roll[i][WHO]+1) #+1 is because who starts
         else:                                          #at 0, and colors start 
-            self.updateList(qstring, roll[i]["who"]+1) #at 1
+            self.updateList(qstring, roll[i][WHO]+1) #at 1
         #TODO send data to logger/network
         #return number for use
         return val
@@ -148,12 +158,12 @@ if __name__ == "__main__":
     curses.init_pair(2,curses.COLOR_BLUE,curses.COLOR_BLACK)
     curses.init_pair(3,curses.COLOR_MAGENTA,curses.COLOR_GREEN)
     roller = Roller(stdscr, 1, True)
-    dict1 = {"#dice":2, "denom":6, "#keep":1, "keeph":True, "add":True, "who":0}
-    dict2 = {"#dice":2, "denom":4, "#keep":2, "keeph":False, "add":True, "who":0}
-    dict3 = {"#dice":3, "denom":0, "#keep":2, "keeph":True, "add":False, "who":1}
-    dict4 = {"#dice":5, "denom":0, "#keep":2, "keeph":True, "add":True, "who":1}
-    dict5 = {"#dice":2, "denom":4, "#keep":1, "keeph":False, "add":False, "who":2}
-    dict6 = {"#dice":3, "denom":6, "#keep":2, "keeph":True, "add":False, "who":2}
+    dict1 = {NOOFDICE:2, DENOMINATION:6, KEEPS:1, KEEPHIGH:True, ADD:True, WHO:0}
+    dict2 = {NOOFDICE:2, DENOMINATION:4, KEEPS:2, KEEPHIGH:False, ADD:True, WHO:0}
+    dict3 = {NOOFDICE:3, DENOMINATION:0, KEEPS:2, KEEPHIGH:True, ADD:False, WHO:1}
+    dict4 = {NOOFDICE:5, DENOMINATION:0, KEEPS:2, KEEPHIGH:True, ADD:True, WHO:1}
+    dict5 = {NOOFDICE:2, DENOMINATION:4, KEEPS:1, KEEPHIGH:False, ADD:False, WHO:2}
+    dict6 = {NOOFDICE:3, DENOMINATION:6, KEEPS:2, KEEPHIGH:True, ADD:False, WHO:2}
     list1 = [dict1,dict2]
     list2 = [dict3,dict4]
     list3 = [dict4,dict5]

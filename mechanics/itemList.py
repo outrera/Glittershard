@@ -1,11 +1,10 @@
 #!/usr/bin/python
 
 """ itemlist.py
-    Grabs and works with all items
+
+    !!!NOT A VALID FILE!!!
     
-    Author: Jeremy Stintzcum
-    Date last Modified: 10/31/17
-    python ver: 2.7
+    This file remains until all valuable data is removed from it
 """
 
 #TODO Add room keys for inns

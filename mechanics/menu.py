@@ -120,7 +120,6 @@ class Menu:
                     self.select = 0
                     self.update()
                     
-            
     def update(self):
         """Updates window"""
         #Redraw

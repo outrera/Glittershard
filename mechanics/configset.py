@@ -11,6 +11,8 @@
 import ConfigParser, curses
 import textin, menu
 
+#TODO Generic string setter
+
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("configset"):
     STARTX = c.getint("configset","startx")
@@ -87,7 +89,7 @@ def getName(w,c,color):
     """
     name = textin.TextIn("Enter a name:",STARTY,STARTX,TEXTBOXH,TEXTBOXW,color)
     while c.has_section(name):
-        name = textin.TextIn("Item already exists.",STARTY,STARTX,TEXTBOXH,
+        name = textin.TextIn("Name already exists.",STARTY,STARTX,TEXTBOXH,
         TEXTBOXW,color)
     c.add_section(name)
     w.window.touchwin()

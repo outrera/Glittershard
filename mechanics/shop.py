@@ -10,7 +10,12 @@
     python ver: 2.7
 """
 
-import menu, items
+import ConfigParser
+import menu
+
+#TODO add true/false asks in items for each shop (sold in wizard shop? true/false)
+
+#Constants
 ALCHEMIST = 0
 BLACKSMITH = 1
 BOOKSTORE = 2
@@ -34,30 +39,15 @@ class Shop:
         color = color of the shop window
         x, y, h, w = positional setup
     """
-    def __init__(self, y, x, h, w, color, name, shoptype, player):
+    def __init__(self, y, x, h, w, color, name, shoptype):
         """Defines shop and sets up items"""
         self.menu = Menu(y, x, h, w, color, name)
         self.shoptype = shoptype
-        self.player = player
         self.items = []
-        if shoptype is ALCHEMIST:
-            #Get list of all items to be sold here, return name strings
-            #Add all items than can be purchased at Alchemist to menu
-            #Do this for all shops
-        elif shoptype is BLACKSMITH:
-        elif shoptype is BOOKSTORE:
-        elif shoptype is BOWER:
-        elif shoptype is HUMANIODMARKET:
-        elif shoptype is INN:
-        elif shoptype is JEWELERS:
-        elif shoptype is MARKET:
-        elif shoptype is PET:
-        elif shoptype is SUPPLY:
-        elif shoptype is TANNER:
-        elif shoptype is WIZARD:
-        else:
+        #Use configparser to grab all items associated with shoptype
         
-    def run(Self):
+        
+    def run(self, player):
         """Runs the given shop."""
         item = itemList.get(self.items[self.menu.run()])
         if player.gold > item.attr["price"]:
@@ -65,13 +55,7 @@ class Shop:
             return item
         else:
             #TODO Tell player not enough money 
-                
-                
-    def addItem(self, item):
-        
-    
-    def rmItem(self, item):
-    
+
 #test code
 if __name__ == "__main__":
     #init

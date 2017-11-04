@@ -8,7 +8,10 @@
     python ver: 2.7
 """
 import random
-import classList, itemList, raceList, perkList, trainingList, traitList
+
+#TODO Change dict keys from strings to ints
+#TODO Redesign system to accept .ini files
+#TODO Right now this makes a player. Maybe make a lower lever entity that the player then fills?
 
 class entity:
     #Initialization
@@ -121,7 +124,6 @@ class entity:
         pass
     
     #set class
-    #TODO change to dict
     def setClass(self):
         update = classList.get(self.clss)
         for i in range(update[0]):

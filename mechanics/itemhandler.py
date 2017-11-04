@@ -14,7 +14,7 @@ import menu, textin, configset
 #TODO add the defs to all items
 #TODO Viewer
 #TODO Modifier
-#TODO Make into a class.
+#TODO Make item into class
 #TODO Add magical effects
 
 c = ConfigParser.SafeConfigParser()
@@ -31,11 +31,11 @@ else:
 
 #Filenames
 WFILE = "weapons.ini"
-AFILE = "text.ini"
-SFILE = "text.ini"
-BFILE = "text.ini"
-GFILE = "text.ini"
-PFILE = "text.ini"
+AFILE = "armor.ini"
+SFILE = "shields.ini"
+BFILE = "bags.ini"
+GFILE = "gear.ini"
+PFILE = "potions.ini"
 
 #Menu options
 NEW = 0
@@ -96,7 +96,7 @@ def itemHandler(color=0):
         configset.getBool(nmenu,c,color,name,"binds","Binding:")
         configset.getBool(nmenu,c,color,name,"ap","Armor piercing?")
         if c.getboolean(name,"matt"):
-            wm = menu.Menu(STARTY/4,STARTX/4,HEIGHT/2,WIDTH/2,color,"Damage type:")
+            wm = menu.Menu(STARTY,STARTX,HEIGHT/2,WIDTH/2,color,"Damage type:")
             wm.addItem("Bladed",BLADE)
             wm.addItem("Blunt",BLUNT)
             choice = wm.run()
@@ -106,11 +106,14 @@ def itemHandler(color=0):
                 c.set(name,"dtype",str(BLUNT))
             nmenu.window.touchwin()
             nmenu.winodw.clear()
-            configset.getInt(nmenu,c,color,name,"mrange","Melee range in units:")
-            configset.getBool(nmenu,c,color,name,"brace","Weapon cam be braced:")
+            configset.getInt(nmenu,c,color,name,"mrange",
+            "Melee range in units:")
+            configset.getBool(nmenu,c,color,name,"brace",
+            "Weapon cam be braced:")
         if c.getboolean(name,"ratt"):
             configset.getInt(nmenu,c,color,name,"rrange","Max range:")
-            rm = menu.Menu(STARTY/4,STARTX/4,HEIGHT/2,WIDTH/2,color,"Damage type:")
+            rm = menu.Menu(STARTY/4,STARTX/4,HEIGHT/2,WIDTH/2,color,
+            "Damage type:")
             rm.addItem("Thrown",THROWN)
             rm.addItem("Arrow",ARROW)
             rm.addItem("Bolt",BOLT)
@@ -123,7 +126,8 @@ def itemHandler(color=0):
                 c.set(name,"dtype",str(BOLT))
             nmenu.window.touchwin()
             nmenu.winodw.clear()
-            configset.getBool(nmenu,c,color,name,"loadisaction","Load is an action")
+            configset.getBool(nmenu,c,color,name,"loadisaction",
+            "Load is an action")
             configset.getBool(nmenu,c,color,name,"windisaction","Winds up")
             c.set(name,"wound","false")
         configset.getDesc(nmenu,c,color,name,"desc")
@@ -133,35 +137,45 @@ def itemHandler(color=0):
         f.close()
     elif choise is ARMOR:
         c.read(AFILE)
-        configset.getName(nmenu,c,color)
+        name = configset.getName(nmenu,c,color)
         configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getFloat(nmenu,c,color,name,"weight","Set weight:")
+        configset.getDesc(nmenu,c,color,name,"desc")
         f = open(AFILE,"wb")
         c.write(f)
         f.close()
     elif choise is SHIELD:
         c.read(SFILE)
-        configset.getName(nmenu,c,color)
+        name = configset.getName(nmenu,c,color)
         configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getFloat(nmenu,c,color,name,"weight","Set weight:")
+        configset.getDesc(nmenu,c,color,name,"desc")
         f = open(SFILE,"wb")
         c.write(f)
         f.close()
     elif choise is BAG:
         c.read(BFILE)
-        configset.getName(nmenu,c,color)
+        name = configset.getName(nmenu,c,color)
         configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getDesc(nmenu,c,color,name,"desc")
         f = open(BFILE,"wb")
         c.write(f)
         f.close()
     elif choise is GEAR:
         c.read(GFILE)
-        configset.getName(nmenu,c,color)
+        name = configset.getName(nmenu,c,color)
         configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getFloat(nmenu,c,color,name,"weight","Set weight:")
+        configset.getDesc(nmenu,c,color,name,"desc")
         f = open(GFILE,"wb")
         c.write(f)
         f.close()
     elif choise is POTION:
         c.read(PFILE)
-        configset.getName(nmenu,c,color)
+        name = configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getFloat(nmenu,c,color,name,"weight","Set weight:")
+        configset.getDesc(nmenu,c,color,name,"desc")
         f = open(PFILE,"wb")
         c.write(f)
         f.close()
@@ -179,7 +193,7 @@ if __name__ == "__main__":
     curses.start_color()
     #test
     curses.init_pair(1,curses.COLOR_GREEN,curses.COLOR_BLACK)
-    createItem(1)
+    itemhandler.itemHandler(1)
     #reset
     curses.nocbreak()
     curses.echo()

@@ -9,16 +9,19 @@
     python ver: 2.7
 """
 import re, curses, curses.panel
+import textin
 
-#TODO Turn 30 getchs into a string
-#TODO Define Parse properly
-#TODO Move settings to file
 
 #settings
-TEXT_WIDTH = 56
-TEXT_HEIGHT = 10
-BORDER = 0
-OFFSET = BORDER + 0 
+c = ConfigParser.SafeConfigParser()
+if c.read("settings.ini") and c.has_section("parser")
+    WIDTH = c.getint("parser","width")
+    HEIGHT = c.getint("parser","height")
+    BORDER = c.getint("parser","border")
+else:
+    WIDTH = 56
+    HEIGHT = 10
+    BORDER = 0
 
 class Parser:
     def __init__(self, stdscr, color):
@@ -38,25 +41,7 @@ class Parser:
         self.panel = curses.panel.new_panel(self.window)
         #draw
         curses.panel.update_panels()
-        curses.doupdate()
-        
-    """ updateList(string)
-        The most recent roll of the die is displayed at the bottom of the queue.
-        Colors are maintained
-    """
-    def updateList(self, string):
-        self.li.reverse()
-        for i in range(len(string)):
-            string[i] = "{message: <{width}}".format(message=string[i], 
-            width=self.w)
-            self.li.append(string[i])
-        self.li.reverse()
-        while len(self.li) >= (self.h-(OFFSET*2)):
-            self.li.pop()
-        for j in range(len(self.li)):
-            self.window.addstr((self.h-OFFSET-1)-j,1,self.li[j])
-        curses.panel.update_panels()
-        curses.doupdate()    
+        curses.doupdate() 
         
     def parse(self, string):
         pass
@@ -74,10 +59,6 @@ if __name__ == "__main__":
     #test code
     curses.init_pair(1,curses.COLOR_BLACK,curses.COLOR_RED)
     parser = Parser(stdscr,1)
-    parser.window.move(parser.h-1, 0)
-    while parser.window.getch() is not 10:
-        pass #curses.textbox
-    #reset
     curses.nocbreak()
     stdscr.keypad(0)
     curses.endwin()
@@ -132,18 +113,4 @@ def parser(string, user = "default", playerlist = ["John"]):
         temp = re.sub(r"/dm |!dm ","", string)
         output["to"] = "dm"
         output["result"] = temp
-#============================================================
-#DM options
 
-#============================================================
-#Character commands
-
-
-    #print normally
-    return output
-#Test
-if __name__ == "__main__":
-    nwstr = raw_input()
-    n = parser(nwstr)
-    print n
-"""

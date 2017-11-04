@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
 """ classList.py
-    Contains all class attributes
-    Arg1: class to get attributes for
-    Arg2: level of created class. used for perks
+    
+    !!!NOT A VALID FILE!!!
+    
+    This file remains until data can be stripped from it.
 """
 #TODO: Add item and perk choice system
 #TODO: Items and perks should be functional, not strings
