@@ -4,7 +4,7 @@
     Base Class of all moving creatures in Glittershard
     
     Author: Jeremy Stintzcum
-    Date last Modified: 10/31/17
+    Date last Modified: 11/4/17
     python ver: 2.7
 """
 import random
@@ -20,9 +20,6 @@ class entity:
         self.main = {"owner" : owner, "race" : "human", "clss" : None, 
         "level" : 1, "xp" : 0, "armor" : 0, "dodge" : 0, "speed" : 30, 
         "size" : "med"}
-        #affiliations are used to determine enemies, friends, and neutrals in 
-        #combat
-        self.aff = []
         
         #stats
         self.stats = {"cha" : 0, "dm" : 0, "dex" : 0, "hea" : 0, "lm" : 0,  

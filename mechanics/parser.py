@@ -5,47 +5,63 @@
     typing and a list of targets.
     
     Author: Jeremy Stintzcum
-    Date last Modified: 10/31/17
+    Date last Modified: 11/4/17
     python ver: 2.7
 """
 import re, curses, curses.panel
-import textin
-
+import ConfigParser
+import textin, dice
 
 #settings
 c = ConfigParser.SafeConfigParser()
-if c.read("settings.ini") and c.has_section("parser")
+if c.read("settings.ini") and c.has_section("parser"):
     WIDTH = c.getint("parser","width")
     HEIGHT = c.getint("parser","height")
-    BORDER = c.getint("parser","border")
 else:
     WIDTH = 56
-    HEIGHT = 10
-    BORDER = 0
+    HEIGHT = 4
+
+#Constants
+NOOFDICE = 0
+DENOMINATION = 1
+KEEPS = 2
+KEEPHIGH = 3
+ADD = 4
+WHO = 5
 
 class Parser:
     def __init__(self, stdscr, color):
         #init
         self.Y, self.X = stdscr.getmaxyx()
-        self.h = TEXT_HEIGHT
-        self.w = TEXT_WIDTH
+        self.h = HEIGHT
+        self.w = WIDTH
         self.x = 0
-        self.y = self.Y-TEXT_HEIGHT
+        self.y = self.Y-HEIGHT
         self.color = color
-        self.li = []
-        #set window
-        self.window = curses.newwin(self.h,self.w,self.y,self.x)
-        self.window.attrset(curses.color_pair(self.color))
-        self.window.bkgd(" ",curses.color_pair(self.color))
-        #set panel
-        self.panel = curses.panel.new_panel(self.window)
+        self.keys = []
+        #precompiled RegEx
+        #sent strings
+        roll = re.compile(r"/roll|!roll")
+        #dice
+        num = re.compile(r"\d+")
+        khigh = re.compile(r"high|High|h|HIGH")
+        klow = re.compile(r"low|Low|l|LOW")
+        add = re.compile(r"\+")
+        sub = re.compile(r"-")
+        dice = re.compile(r"\d+|\+|-|high|High|h|HIGH|low|Low|l|LOW")
         #draw
         curses.panel.update_panels()
         curses.doupdate() 
         
-    def parse(self, string):
-        pass
-        
+    def parse(self):
+        string = textin.TextIn("Chat:",self.y,self.x,self.h,self.w,self.color)
+        if roll.match(string):
+            self.keys = dice.findall()
+            out = {NOOFDICE:0, DENOMINATION:0, KEEPS:0, KEEPHIGH:True, ADD:True,
+            WHO:0}
+            print self.keys
+            #while self.keys:
+             #   if self.keys[0] is num.match()
 
 #test code
 if __name__ == "__main__":
@@ -59,7 +75,10 @@ if __name__ == "__main__":
     #test code
     curses.init_pair(1,curses.COLOR_BLACK,curses.COLOR_RED)
     parser = Parser(stdscr,1)
+    parser.parse()
+    #reset
     curses.nocbreak()
+    curses.echo()
     stdscr.keypad(0)
     curses.endwin()
 """
@@ -113,4 +132,4 @@ def parser(string, user = "default", playerlist = ["John"]):
         temp = re.sub(r"/dm |!dm ","", string)
         output["to"] = "dm"
         output["result"] = temp
-
+"""
