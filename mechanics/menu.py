@@ -10,15 +10,23 @@
 """
 import curses, curses.panel, ConfigParser
 
-#TODO Move settings to file
-#settings
-BORDER = 1 #size of border
-CURSOR = "=>" #cursor
-CURSOR_CLR = "  " #same length as cursor
-CURSOR_STARTPOS = 2 #starting x position of cursor
-LINE_OFF = 2 #standard offset
-TEXT_OFF = 0 #Space between title and first entry
-TITLE_OFF = 0 #Space between border and title
+c = ConfigParser.SafeConfigParser()
+if c.read("settings.ini") and c.has_section("menu"):
+    BORDER = c.getint("menu","border")
+    CURSOR = c.getint("menu","cursor")
+    CURSOR_CLR = c.getint("menu","cursorclr")
+    CURSOR_STARTPOS = c.getint("menu","cursorstartpos")
+    LINE_OFF = c.getint("menu","lineoff")
+    TEXT_OFF = c.getint("menu","textoff")
+    TITLE_OFF = c.getint("menu","titleoff")
+else:
+    BORDER = 1 #size of border
+    CURSOR = "=>" #cursor
+    CURSOR_CLR = "  " #same length as cursor
+    CURSOR_STARTPOS = 2 #starting x position of cursor
+    LINE_OFF = 2 #standard offset
+    TEXT_OFF = 0 #Space between title and first entry
+    TITLE_OFF = 0 #Space between border and title
 
 #Constants
 EXIT = -1 #exit condition
@@ -41,8 +49,9 @@ class Menu:
     def __init__(self,y,x,h,w,color=0,title=""):
         #init vars
         self.w = w
+        #set minimum height
         if h < (2*BORDER+TEXT_OFF+TITLE_OFF+5):
-            h = (2*BORDER+TEXT_OFF+TITLE_OFF+5)
+            h = (2*BORDER+TEXT_OFF+TITLE_OFF+2*LINE_OFF+1)
         self.select = 0
         self.items = []
         self.page = 0
@@ -104,7 +113,7 @@ class Menu:
                     state = RUNNING
                     self.update()
                 #If an actual choice
-                elif (state+self.page*(self.maxlistsize-1)) < len(self.items)+1:
+                elif (state+self.page*(self.maxlistsize-1)) < len(self.items):
                     return self.items[state+(self.page*(self.maxlistsize-1))][1]
                 else: #If blank
                     state = RUNNING
@@ -144,7 +153,6 @@ class Menu:
         width=self.w-ITEM_OFF-2)
         tup = (name,com)
         self.items.append(tup) #Add new item
-        #TODO FIX EVERYTHING
         self.maxpage = len(self.items)/(self.maxlistsize-1)
     
     def rmItem(self, command):
@@ -178,7 +186,7 @@ if __name__ == "__main__":
     stdscr.keypad(1)
     curses.start_color()
     #test code
-    curses.init_pair(1,curses.COLOR_WHITE,curses.COLOR_BLACK)
+    curses.init_pair(1,curses.COLOR_RED,curses.COLOR_BLACK)
     testmenu = Menu(1,1,12,60,1,"Test")
     testmenu.addItem("Item 1",1)
     testmenu.addItem("Item 2",2)

@@ -1,18 +1,21 @@
 #!/usr/bin/env python
 
-""" itemcreator.py
+""" itemhandler.py
     This program automatically opens/creates an .ini file to write values.
     
     Author: Jeremy Stintzcum
-    Date last Modified: 11/1/17
+    Date last Modified: 11/2/17
     python ver: 2.7
 """
 import ConfigParser
-import menu, textin
+import menu, textin, configset
 
 #TODO Add .ini files
 #TODO add the defs to all items
-#TODO move the parser defs to a new file, so they can be reused
+#TODO Viewer
+#TODO Modifier
+#TODO Make into a class.
+#TODO Add magical effects
 
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("itemcreator"):
@@ -20,30 +23,24 @@ if c.read("settings.ini") and c.has_section("itemcreator"):
     HEIGHT = c.getint("itemcreator","height")
     STARTX = c.getint("itemcreator","startx")
     STARTY = c.getint("itemcreator","starty")
-    TEXTBOXH = c.getint("itemcreator","textboxh")
-    TEXTBOXW = c.getint("itemcreator","textboxw")
-    DESCBOXH = c.getint("itemcreator","descboxh")
-    DESCBOXW = c.getint("itemcreator","descboxw")
 else:
     WIDTH = 80
     HEIGHT = 24
     STARTX = 0
     STARTY = 0
-    TEXTBOXH = 4
-    TEXTBOXW = 30
-    DESCBOXH = 20
-    DESCBOXW = 60
 
 #Filenames
-WFILE = "text.ini"
+WFILE = "weapons.ini"
 AFILE = "text.ini"
 SFILE = "text.ini"
 BFILE = "text.ini"
 GFILE = "text.ini"
 PFILE = "text.ini"
 
-#Constants
-TAB_KEY = ord("\t")
+#Menu options
+NEW = 0
+MODIFY = 1
+VIEW = 2
 #Itemtypes
 WEAPON = 0
 ARMOR = 1
@@ -57,8 +54,11 @@ BLADE = 1
 SMALL = 0
 MEDIUM = 1
 LARGE = 2
+BOLT = 0
+ARROW = 1
+THROWN = 2
 
-def createItem(self, itype, color = 0):
+def itemHandler(color=0):
     """ createItem(itype, color)
     
         itype: The type of item
@@ -67,70 +67,12 @@ def createItem(self, itype, color = 0):
     #init
     c = ConfigParser.SafeConfigParser()
     nmenu = menu.Menu(STARTY,STARTX,HEIGHT,WIDTH,color,"Item Creator")
-    
-    def getFloat(c,name,tag,text):
-        """Sets a float value"""
-        temp = textin.TextIn(text,(HEIGHT/2)+STARTY,
-        (WIDTH/2)+STARTX-(TEXTBOXW/2),TEXTBOXH,TEXTBOXW,color)
-        try:
-            temp = float(temp)
-            "{0:.2g}".format(temp)
-            temp = str(temp)
-            c.set(name,tag,temp)
-            nmenu.window.touchwin()
-            nmenu.window.refresh()
-        except:
-            getFloat(c,name,tag,"Not a number:")
-            
-    def getInt(c,name,tag,text):
-        """Sets an int value"""
-        temp = textin.TextIn(text,(HEIGHT/2)+STARTY,
-        (WIDTH/2)+STARTX-(TEXTBOXW/2),TEXTBOXH,TEXTBOXW,color)
-        try:
-            int(temp)
-            temp = str(temp)
-            c.set(name,tag,temp)
-            nmenu.window.touchwin()
-            nmenu.window.refresh()
-        except:
-            getInt(c,name,tag,"Not an Integer:")
-    
-    def getName(c):
-        """Gets the section name"""
-        name = textin.TextIn("Enter a name:",(HEIGHT/2)+STARTY,
-        (WIDTH/2)+STARTX-(TEXTBOXW/2),TEXTBOXH,TEXTBOXW,color)
-        while c.has_section(name):
-            name = textin.TextIn("Item already exists.",(HEIGHT/2)+STARTY,
-            (WIDTH/2)+STARTX-(TEXTBOXW/2),TEXTBOXH,TEXTBOXW,color)
-        c.add_section(name)
-        nmenu.window.touchwin()
-        nmenu.window.refresh()
-        return name
-        
-    def getDesc(c,name,tag):
-        "Gets a description"
-        temp = textin.TextIn("Description: (tab finishes)",
-        (HEIGHT/2)+STARTY-(DESCBOXH/2),(WIDTH/2)+STARTX-(DESCBOXW/2),DESCBOXH,
-        DESCBOXW,color,TAB_KEY)
-        c.set(name,tag,temp)
-        nmenu.window.touchwin()
-        nmenu.window.refresh()
-    
-    def getBool(c,name,tag,text):
-        curses.curs_set(0)
-        boolmenu = menu.Menu((HEIGHT/2)+STARTY,
-            (WIDTH/2)+STARTX-(TEXTBOXW/2),TEXTBOXH,TEXTBOXW,color,text)
-        boolmenu.addItem("True",1)
-        boolmenu.addItem("False",2)
-        selection = boolmenu.run()
-        if selection is 1:
-            c.set(name,tag,"true")
-        else:
-            c.set(name,tag,"false")
-        curses.curs_set(1)
-        nmenu.window.touchwin()
-        nmenu.window.refresh()
-    
+    #Choose 
+    nmenu.addItem("New item",NEW)
+    nmenu.addItem("Modify an item",MODIFY)
+    nmenu.addItem("View an item",VIEW)
+    choice1 = nmenu.run()
+    nmenu.clear()
     #Choose an item type
     nmenu.addItem("Weapon",WEAPON)
     nmenu.addItem("Armor",ARMOR)
@@ -139,51 +81,87 @@ def createItem(self, itype, color = 0):
     nmenu.addItem("Gear",GEAR)
     nmenu.addItem("Potion",POTION)
     choice = nmenu.run()
-    #Clear menu
-    nmenu.clear()
     if choice is WEAPON:
         c.read(WFILE)
-        name = getName(c)
-        getFloat(c,name,"price","Set price:")
-        getInt(c,name,"dietype","Type of Die:")
-        getDesc(c,name,"desc")
-        getFloat(c,name,"weight","Set weight:")
-        getBool(c,name,"ap","Armor piercing?")
+        name = configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
+        configset.getFloat(nmenu,c,color,name,"weight","Set weight:")
+        configset.getBool(nmenu,c,color,name,"matt","Melee:")
+        configset.getBool(nmenu,c,color,name,"ratt","Ranged:")
+        configset.getInt(nmenu,c,color,name,"accuracy","Accuracy:")
+        configset.getInt(nmenu,c,color,name,"dietype","Type of Die:")
+        configset.getInt(nmenu,c,color,name,"noofdice","Number of Dice:")
+        configset.getInt(nmenu,c,color,name,"hands","Min num of hands:")
+        configset.getBool(nmenu,c,color,name,"slow","Slow action:")
+        configset.getBool(nmenu,c,color,name,"binds","Binding:")
+        configset.getBool(nmenu,c,color,name,"ap","Armor piercing?")
+        if c.getboolean(name,"matt"):
+            wm = menu.Menu(STARTY/4,STARTX/4,HEIGHT/2,WIDTH/2,color,"Damage type:")
+            wm.addItem("Bladed",BLADE)
+            wm.addItem("Blunt",BLUNT)
+            choice = wm.run()
+            if choice is BLADE:
+                c.set(name,"dtype",str(BLADE))
+            elif choice is BLUNT:
+                c.set(name,"dtype",str(BLUNT))
+            nmenu.window.touchwin()
+            nmenu.winodw.clear()
+            configset.getInt(nmenu,c,color,name,"mrange","Melee range in units:")
+            configset.getBool(nmenu,c,color,name,"brace","Weapon cam be braced:")
+        if c.getboolean(name,"ratt"):
+            configset.getInt(nmenu,c,color,name,"rrange","Max range:")
+            rm = menu.Menu(STARTY/4,STARTX/4,HEIGHT/2,WIDTH/2,color,"Damage type:")
+            rm.addItem("Thrown",THROWN)
+            rm.addItem("Arrow",ARROW)
+            rm.addItem("Bolt",BOLT)
+            choice = rm.run()
+            if choice is THROWN:
+                c.set(name,"dtype",str(THROWN))
+            elif choice is ARROW:
+                c.set(name,"dtype",str(ARROW))
+            elif choice is BOLT:
+                c.set(name,"dtype",str(BOLT))
+            nmenu.window.touchwin()
+            nmenu.winodw.clear()
+            configset.getBool(nmenu,c,color,name,"loadisaction","Load is an action")
+            configset.getBool(nmenu,c,color,name,"windisaction","Winds up")
+            c.set(name,"wound","false")
+        configset.getDesc(nmenu,c,color,name,"desc")
         #write to file
         f = open(WFILE,"wb")
         c.write(f)
         f.close()
     elif choise is ARMOR:
         c.read(AFILE)
-        getName(c)
-        getFloat(c,name,"price","Set price:")
+        configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
         f = open(AFILE,"wb")
         c.write(f)
         f.close()
     elif choise is SHIELD:
         c.read(SFILE)
-        getName(c)
-        getFloat(c,name,"price","Set price:")
+        configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
         f = open(SFILE,"wb")
         c.write(f)
         f.close()
     elif choise is BAG:
         c.read(BFILE)
-        getName(c)
-        getFloat(c,name,"price","Set price:")
+        configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
         f = open(BFILE,"wb")
         c.write(f)
         f.close()
     elif choise is GEAR:
         c.read(GFILE)
-        getName(c)
-        getFloat(c,name,"price","Set price:")
+        configset.getName(nmenu,c,color)
+        configset.getFloat(nmenu,c,color,name,"price","Set price:")
         f = open(GFILE,"wb")
         c.write(f)
         f.close()
     elif choise is POTION:
         c.read(PFILE)
-        getName(c)
+        configset.getName(nmenu,c,color)
         f = open(PFILE,"wb")
         c.write(f)
         f.close()
@@ -200,8 +178,8 @@ if __name__ == "__main__":
     stdscr.keypad(1)
     curses.start_color()
     #test
-    curses.init_pair(1,curses.COLOR_GREEN,curses.COLOR_BLUE)
-    createItem(1,1)
+    curses.init_pair(1,curses.COLOR_GREEN,curses.COLOR_BLACK)
+    createItem(1)
     #reset
     curses.nocbreak()
     curses.echo()
