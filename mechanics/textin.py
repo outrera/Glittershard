@@ -14,10 +14,12 @@ if c.read("settings.ini") and c.has_section("textin"):
     BORDER = c.getint("textin","border")
     TITLE_OFF = c.getint("textin","titleoff")
     BOX_OFF = c.getint("textin","boxoff")
+    #DEFAULT_COLOR = c.getint("textin","defaultcolot")
 else:
     BORDER = 1
     TITLE_OFF = 0
     BOX_OFF = 1
+    DEFAULT_COLOR = 0
 
 #Constants
 DBORDER = BORDER * 2

@@ -185,7 +185,7 @@ if __name__ == "__main__":
     stdscr.keypad(1)
     curses.start_color()
     #test code
-    curses.init_pair(1,curses.COLOR_RED,curses.COLOR_BLACK)
+    curses.init_pair(1,curses.COLOR_MAGENTA,curses.COLOR_CYAN)
     testmenu = Menu(1,1,12,60,1,"Test")
     testmenu.addItem("Item 1",1)
     testmenu.addItem("Item 2",2)

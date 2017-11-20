@@ -4,10 +4,11 @@
     This program rolls dice and returns a value
     
     Author: Jeremy Stintzcum
-    Date last Modified: 11/4/17
+    Date last Modified: 11/20/17
     python ver: 2.7
 """
 import random, curses, curses.panel
+import ConfigParser
 
 #settings
 c = ConfigParser.SafeConfigParser()
@@ -15,10 +16,12 @@ if c.read("settings.ini") and c.has_section("dice"):
     BORDER = c.getint("dice","border")
     WIDTH = c.getint("dice","width")
     START_Y = c.getint("dice","starty")
+    DEFAULTCOLOR = c.getint("dice","defaultcolor")
 else:
     BORDER = 1
     WIDTH = 24
     START_Y = 0
+    DEFAULTCOLOR = 1
 
 #Constants
 DBORDER = 2 * BORDER
@@ -31,7 +34,7 @@ ADD = 4
 WHO = 5
 
 class Roller:
-    """ class Roller(stdscr, colorList, loud)
+    """ class Roller(stdscr, loud)
         The class that handles all window interactions
         
         stdscr: ncurses window with the terminal's y and x coordinates
@@ -41,7 +44,7 @@ class Roller:
             2-256 are for players
         loud: determines how verbose the output is 
     """
-    def __init__(self, stdscr, color=0, loud=False):
+    def __init__(self, stdscr, loud=False):
         self.Y, self.X = stdscr.getmaxyx()
         #init vars
         self.h = self.Y
@@ -50,7 +53,7 @@ class Roller:
         self.x = self.X - (DIE_ROLLER_WIDTH)
         self.display = []
         self.loud = loud
-        self.color = color
+        self.color = DEFAULTCOLOR
         #set window
         self.window = curses.newwin(self.h,self.w,self.y,self.x)
         self.window.attrset(curses.color_pair(self.color))
@@ -100,6 +103,7 @@ class Roller:
         lstring = [] #loud. Always sent to the server
         qstring = [] #quiet
         val = 0
+        i = 0
         for i in range(len(roll)):
             #no dice, just a value
             if roll[i][DENOMINATION] is 0:
@@ -128,9 +132,7 @@ class Roller:
                 for j in range(roll[i][KEEPS]):
                     if roll[i][ADD] == False:
                         val = val - numlist.pop()
-                        lstring.append("subtracting")
                     else:
-                        lstring.append("adding")
                         val += numlist.pop()
         #Write total
         lstring.append("Total: " + str(val))
@@ -157,7 +159,7 @@ if __name__ == "__main__":
     curses.init_pair(1,curses.COLOR_RED,curses.COLOR_BLUE)
     curses.init_pair(2,curses.COLOR_BLUE,curses.COLOR_BLACK)
     curses.init_pair(3,curses.COLOR_MAGENTA,curses.COLOR_GREEN)
-    roller = Roller(stdscr, 1, True)
+    roller = Roller(stdscr, True)
     dict1 = {NOOFDICE:2, DENOMINATION:6, KEEPS:1, KEEPHIGH:True, ADD:True, WHO:0}
     dict2 = {NOOFDICE:2, DENOMINATION:4, KEEPS:2, KEEPHIGH:False, ADD:True, WHO:0}
     dict3 = {NOOFDICE:3, DENOMINATION:0, KEEPS:2, KEEPHIGH:True, ADD:False, WHO:1}
