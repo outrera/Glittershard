@@ -59,9 +59,9 @@ def TextIn(text,y,x,h,w,exchar=KEY_ENTER,color=-1):
     def _validator(x):
         """Used to modify escape key, enter by default."""
         if x is exchar:
+            curses.curs_set(0)
             x = TERMINATE
         return x
-    curses.curs_set(0)
     del window
     return text.edit(_validator).strip()
              
