@@ -12,6 +12,8 @@ import re, curses, curses.panel
 import ConfigParser
 import textin, dice
 
+#TODO add definintions to all funcs/class
+
 #settings
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("parser"):
@@ -40,7 +42,7 @@ TYPE = 0
 VALUE = 1
 
 class Parser:
-    def __init__(self, stdscr, roller, who):
+    def __init__(self, stdscr, roller, who, color=-1):
         #init
         self.stdscr = stdscr
         self.Y, self.X = stdscr.getmaxyx()
@@ -48,7 +50,10 @@ class Parser:
         self.w = WIDTH
         self.x = 0
         self.y = self.Y-HEIGHT
-        self.color = DEFAULTCOLOR
+        if color is -1:
+            self.color = DEFAULTCOLOR
+        else:
+            self.color = color
         self.keys = []
         self.roller = roller
         self.who = who

@@ -4,7 +4,7 @@
     Creates a textbox wherever at specified coordinates.
     
     Author: Jeremy Stintzcum
-    Date last Modified: 11/1/17
+    Date last Modified: 11/20/17
     python ver: 2.7
 """
 import curses, curses.panel, curses.textpad, ConfigParser
@@ -14,12 +14,12 @@ if c.read("settings.ini") and c.has_section("textin"):
     BORDER = c.getint("textin","border")
     TITLE_OFF = c.getint("textin","titleoff")
     BOX_OFF = c.getint("textin","boxoff")
-    #DEFAULT_COLOR = c.getint("textin","defaultcolot")
+    DEFAULTCOLOR = c.getint("textin","defaultcolor")
 else:
     BORDER = 1
     TITLE_OFF = 0
     BOX_OFF = 1
-    DEFAULT_COLOR = 0
+    DEFAULTCOLOR = 0
 
 #Constants
 DBORDER = BORDER * 2
@@ -27,7 +27,7 @@ BOX_DIFF = TITLE_OFF+BORDER+BOX_OFF
 TERMINATE = 7
 KEY_ENTER = ord("\n")
 
-def TextIn(text,y,x,h,w,color=0,exchar=KEY_ENTER):
+def TextIn(text,y,x,h,w,exchar=KEY_ENTER,color=-1):
     """ TextIn(text,y,x,h,w,color,exchar)
         Handles text input nicely
         
@@ -38,6 +38,8 @@ def TextIn(text,y,x,h,w,color=0,exchar=KEY_ENTER):
     """
     #Initialize backgound window
     curses.curs_set(1)
+    if color is -1:
+        color = DEFAULTCOLOR
     if h < (DBORDER + TITLE_OFF + BOX_OFF + 1):
         h = DBORDER + TITLE_OFF + BOX_OFF + 1
     window = curses.newwin(h,w,y,x)
@@ -59,6 +61,7 @@ def TextIn(text,y,x,h,w,color=0,exchar=KEY_ENTER):
         if x is exchar:
             x = TERMINATE
         return x
+    curses.curs_set(0)
     del window
     return text.edit(_validator).strip()
              
@@ -73,9 +76,9 @@ if __name__ == "__main__":
     curses.start_color()
     #test code
     curses.init_pair(1,curses.COLOR_WHITE,curses.COLOR_RED)
-    test = TextIn("Enter exits",0,0,10,30,1,ord("\n"))
+    test = TextIn("Enter exits",0,0,10,30,ord("\n"),1)
     stdscr.refresh()
-    test = TextIn("Tab exits",4,25,4,30,1,ord("\t"))
+    test = TextIn("Tab exits",4,25,4,30,ord("\t"),1)
     #reset
     curses.curs_set(1)
     curses.nocbreak()

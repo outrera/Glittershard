@@ -21,7 +21,7 @@ else:
     BORDER = 1
     WIDTH = 24
     START_Y = 0
-    DEFAULTCOLOR = 1
+    DEFAULTCOLOR = 0
 
 #Constants
 DBORDER = 2 * BORDER
@@ -44,7 +44,7 @@ class Roller:
             2-256 are for players
         loud: determines how verbose the output is 
     """
-    def __init__(self, stdscr, loud=False):
+    def __init__(self, stdscr, loud=False, color= -1):
         self.Y, self.X = stdscr.getmaxyx()
         #init vars
         self.h = self.Y
@@ -53,7 +53,10 @@ class Roller:
         self.x = self.X - (DIE_ROLLER_WIDTH)
         self.display = []
         self.loud = loud
-        self.color = DEFAULTCOLOR
+        if color >= 0:
+            self.color = color
+        else:
+            self.color = DEFAULTCOLOR
         #set window
         self.window = curses.newwin(self.h,self.w,self.y,self.x)
         self.window.attrset(curses.color_pair(self.color))

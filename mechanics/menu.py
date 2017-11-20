@@ -5,7 +5,7 @@
     and can be modified at any time
     
     Author: Jeremy Stintzcum
-    Date last Modified: 11/2/17
+    Date last Modified: 11/20/17
     python ver: 2.7
 """
 import curses, curses.panel, ConfigParser
@@ -13,30 +13,34 @@ import curses, curses.panel, ConfigParser
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("menu"):
     BORDER = c.getint("menu","border")
-    CURSOR = c.getint("menu","cursor")
-    CURSOR_CLR = c.getint("menu","cursorclr")
+    CURSOR = c.get("menu","cursor")
     CURSOR_STARTPOS = c.getint("menu","cursorstartpos")
     LINE_OFF = c.getint("menu","lineoff")
     TEXT_OFF = c.getint("menu","textoff")
     TITLE_OFF = c.getint("menu","titleoff")
+    DEFAULTCOLOR = c.getint("menu","defaultcolor")
 else:
     BORDER = 1 #size of border
     CURSOR = "=>" #cursor
-    CURSOR_CLR = "  " #same length as cursor
     CURSOR_STARTPOS = 2 #starting x position of cursor
     LINE_OFF = 2 #standard offset
     TEXT_OFF = 0 #Space between title and first entry
     TITLE_OFF = 0 #Space between border and title
+    DEFAULTCOLOR = 0
 
 #Constants
 EXIT = -1 #exit condition
 ITEM_OFF = len(CURSOR) + CURSOR_STARTPOS + BORDER #listed item offset
+temp = ""
+for i in range(len(CURSOR)):
+    temp = temp + " "
+CURSOR_CLR = temp
 KEY_ESC = 27
 KEY_ENTER = ord("\n")
 RUNNING = -2 #While loop condition
 
 class Menu:
-    """ Menu(y, x, h, w, color, title)
+    """ Menu(y, x, h, w, title, color)
         Creates a menu with the given parameters
         
         y: y offset
@@ -46,7 +50,7 @@ class Menu:
         color: the color the menu will appear as
         title: Title text
     """
-    def __init__(self,y,x,h,w,color=0,title=""):
+    def __init__(self,y,x,h,w,title="",color=-1):
         #init vars
         self.w = w
         #set minimum height
@@ -55,7 +59,10 @@ class Menu:
         self.select = 0
         self.items = []
         self.page = 0
-        self.color = color
+        if color >= 0:
+            self.color = color
+        else:
+            self.color = DEFAULTCOLOR
         self.title = title
         self.maxlistsize = (h-(2*BORDER+TEXT_OFF+TITLE_OFF))/LINE_OFF
         self.maxpage = 0
@@ -72,6 +79,11 @@ class Menu:
         self.update()
         #set panel
         self.panel = curses.panel.new_panel(self.window)
+
+    def refresh(self):
+        """clears and refreshes the window"""
+        self.update()
+        self.window.refresh()
 
     def run(self):
         """ run()
@@ -186,7 +198,7 @@ if __name__ == "__main__":
     curses.start_color()
     #test code
     curses.init_pair(1,curses.COLOR_MAGENTA,curses.COLOR_CYAN)
-    testmenu = Menu(1,1,12,60,1,"Test")
+    testmenu = Menu(1,1,12,60,"Test")
     testmenu.addItem("Item 1",1)
     testmenu.addItem("Item 2",2)
     testmenu.run()

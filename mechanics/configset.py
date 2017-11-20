@@ -23,6 +23,7 @@ if c.read("settings.ini") and c.has_section("configset"):
     DESCSTARTY = c.getint("configset","descstarty")
     DESCBOXH = c.getint("configset","descboxh")
     DESCBOXW = c.getint("configset","descboxw")
+    DEFAULTCOLOR = c.getint("configset","defaultcolor")
 else:
     STARTX = 25
     STARTY = 10
@@ -32,12 +33,13 @@ else:
     DESCSTARTY = 2
     DESCBOXH = 20
     DESCBOXW = 60
+    DEFAULTCOLOR = 0
     
 #Constants
 TAB_KEY = ord("\t")
 
-def getFloat(w,c,color,name,tag,text):
-    """ getFloat(w,c,color,name,tag,text)
+def getFloat(w,c,name,tag,text,color=DEFAULTCOLOR):
+    """ getFloat(w,c,name,tag,text,color)
         Sets a float value
     
         w: menu to clear
@@ -56,10 +58,10 @@ def getFloat(w,c,color,name,tag,text):
         w.window.touchwin()
         w.window.refresh()
     except:
-        getFloat(w,c,color,name,tag,"Not a number:")
+        getFloat(w,c,name,tag,"Not a number:")
         
-def getInt(w,c,color,name,tag,text):
-    """ getInt(w,c,color,name,tag,text)
+def getInt(w,c,name,tag,text,color=DEFAULTCOLOR):
+    """ getInt(w,c,name,tag,text,color)
         Sets a int value
     
         w: menu to clear
@@ -77,16 +79,17 @@ def getInt(w,c,color,name,tag,text):
         w.window.touchwin()
         w.window.refresh()
     except:
-        getInt(w,c,color,name,tag,"Not an Integer:")
+        getInt(w,c,name,tag,"Not an Integer:")
 
-def getName(w,c,color):
-    """ getName(w,c)
+def getName(w,c,color=DEFAULTCOLOR):
+    """ getName(w,c,color)
         Returns a string
     
         w: menu to clear
         c: parser
         color: Color to use
     """
+    curses.curs_set(1)
     name = textin.TextIn("Enter a name:",STARTY,STARTX,TEXTBOXH,TEXTBOXW,color)
     while c.has_section(name):
         name = textin.TextIn("Name already exists.",STARTY,STARTX,TEXTBOXH,
@@ -94,10 +97,11 @@ def getName(w,c,color):
     c.add_section(name)
     w.window.touchwin()
     w.window.refresh()
+    curses.curs_set(0)
     return name
     
-def getDesc(w,c,color,name,tag):
-    """ getDesc(w,c,color,name,tag)
+def getDesc(w,c,name,tag,color=DEFAULTCOLOR):
+    """ getDesc(w,c,name,tag,color)
         Sets a description
     
         w: menu to clear
@@ -106,14 +110,16 @@ def getDesc(w,c,color,name,tag):
         name: section
         tag: value
     """
+    curses.curs_set(1)
     temp = textin.TextIn("Description: (tab finishes)",DESCSTARTY,DESCSTARTX,
-    DESCBOXH,DESCBOXW,color,TAB_KEY)
-    c.set(name,tag,temp)
+    DESCBOXH,DESCBOXW,TAB_KEY,color)
+    c.set(name,tag,"\"" + temp + "\"")
     w.window.touchwin()
     w.window.refresh()
+    curses.curs_set(0)
 
-def getBool(w,c,color,name,tag,text):
-    """ getBool(w,c,color,name,tag,text)
+def getBool(w,c,name,tag,text,color=DEFAULTCOLOR):
+    """ getBool(w,c,name,tag,text,color)
         Sets a boolean value
     
         w: menu to clear
@@ -124,7 +130,7 @@ def getBool(w,c,color,name,tag,text):
         text: display text
     """
     curses.curs_set(0)
-    boolmenu = menu.Menu(STARTY,STARTX,TEXTBOXH,TEXTBOXW,color,text)
+    boolmenu = menu.Menu(STARTY,STARTX,TEXTBOXH,TEXTBOXW,text,color)
     boolmenu.addItem("True",1)
     boolmenu.addItem("False",2)
     selection = boolmenu.run()
