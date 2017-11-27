@@ -8,7 +8,7 @@
     python ver: 2.7
 """
 import random, curses, curses.panel
-import ConfigParser
+import ConfigParser, textwrap
 
 #settings
 c = ConfigParser.SafeConfigParser()
@@ -86,8 +86,8 @@ class Roller:
             self.display.pop()
         #draw the lines in the proper order
         for j in range(len(self.display)):
-            #TODO Truncate lines to fit display window if too large. 
-            self.window.addstr((self.h-BORDER-1)-j,BORDER, self.display[j][0], 
+            temp = textwrap.wrap(self.display[j][0],WIDTH) 
+            self.window.addstr((self.h-BORDER-1)-j,BORDER, str(temp), 
             curses.color_pair(self.display[j][1]))
         #update screen
         curses.panel.update_panels()

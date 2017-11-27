@@ -8,8 +8,7 @@
     Date last Modified: 11/20/17
     python ver: 2.7
 """
-import re, curses, curses.panel
-import ConfigParser
+import re, ConfigParser
 import textin, dice
 
 #TODO add definintions to all funcs/class
@@ -42,14 +41,14 @@ TYPE = 0
 VALUE = 1
 
 class Parser:
-    def __init__(self, stdscr, roller, who, color=-1):
+    def __init__(self, stdscr, roller, who, color=-1 h=HEIGHT, w=WIDTH,):
         #init
         self.stdscr = stdscr
         self.Y, self.X = stdscr.getmaxyx()
-        self.h = HEIGHT
-        self.w = WIDTH
+        self.h = h
+        self.w = w
         self.x = 0
-        self.y = self.Y-HEIGHT
+        self.y = self.Y-self.h
         if color is -1:
             self.color = DEFAULTCOLOR
         else:
@@ -65,7 +64,7 @@ class Parser:
         self.whisper = re.compile(r"/whisper|!whisper") #sends message to specifie player
         self.dm = re.compile(r"/dm|!dm") #sends message to DM
         self.items = re.compile(r"/items|!items") #open item menu
-        self.turn = re.compile(r"/turn|!turn") #allows one to return to taking a turn 
+        self.turn = re.compile(r"/menu|!menu") #opens standard menu
         #dice
         self.num = re.compile(r"\d+")
         self.khigh = re.compile(r"high|High|h|HIGH")
@@ -73,9 +72,6 @@ class Parser:
         self.add = re.compile(r"\+")
         self.sub = re.compile(r"-")
         self.dice = re.compile(r"\d+|\+|-|high|High|h|HIGH|low|Low|LOW")
-        #draw
-        curses.panel.update_panels()
-        curses.doupdate() 
         
     def parse(self):
         string = textin.TextIn("Chat:",self.y,self.x,self.h,self.w,self.color)
@@ -136,6 +132,7 @@ class Parser:
 
 #test code
 if __name__ == "__main__":
+    import curses
     #init
     stdscr = curses.initscr()
     curses.curs_set(0)

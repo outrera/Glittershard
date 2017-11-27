@@ -12,6 +12,7 @@ import ConfigParser, curses
 import textin, menu
 
 #TODO Generic string setter
+#TODO fix x,y,h,w
 
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("configset"):
@@ -89,15 +90,13 @@ def getName(w,c,color=DEFAULTCOLOR):
         c: parser
         color: Color to use
     """
-    curses.curs_set(1)
-    name = textin.TextIn("Enter a name:",STARTY,STARTX,TEXTBOXH,TEXTBOXW,color)
+    name = textin.TextIn("Enter a name:",STARTY,STARTX,0,TEXTBOXW,color)
     while c.has_section(name):
         name = textin.TextIn("Name already exists.",STARTY,STARTX,TEXTBOXH,
         TEXTBOXW,color)
     c.add_section(name)
     w.window.touchwin()
     w.window.refresh()
-    curses.curs_set(0)
     return name
     
 def getDesc(w,c,name,tag,color=DEFAULTCOLOR):
@@ -110,13 +109,11 @@ def getDesc(w,c,name,tag,color=DEFAULTCOLOR):
         name: section
         tag: value
     """
-    curses.curs_set(1)
     temp = textin.TextIn("Description: (tab finishes)",DESCSTARTY,DESCSTARTX,
     DESCBOXH,DESCBOXW,TAB_KEY,color)
     c.set(name,tag,"\"" + temp + "\"")
     w.window.touchwin()
     w.window.refresh()
-    curses.curs_set(0)
 
 def getBool(w,c,name,tag,text,color=DEFAULTCOLOR):
     """ getBool(w,c,name,tag,text,color)

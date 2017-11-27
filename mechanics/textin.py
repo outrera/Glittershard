@@ -28,7 +28,7 @@ TERMINATE = 7
 KEY_ENTER = ord("\n")
 
 def TextIn(text,y,x,h,w,exchar=KEY_ENTER,color=-1):
-    """ TextIn(text,y,x,h,w,color,exchar)
+    """ TextIn(text,y,x,h,w,exchar,color)
         Handles text input nicely
         
         y, x, h, w: Dimensions of the outer window.
@@ -46,7 +46,7 @@ def TextIn(text,y,x,h,w,exchar=KEY_ENTER,color=-1):
     window.attrset(curses.color_pair(color))
     window.bkgd(" ",curses.color_pair(color))
     window.border()
-    window.addstr(BORDER,BORDER,text,
+    window.addstr(BORDER + TITLE_OFF,BORDER,text,
     curses.A_BOLD|curses.A_UNDERLINE|curses.color_pair(color))
     #Create textbox
     txtwin = window.subwin(h-(BOX_DIFF+1),w-DBORDER,y+BOX_DIFF,x+BORDER)
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     curses.init_pair(1,curses.COLOR_WHITE,curses.COLOR_RED)
     test = TextIn("Enter exits",0,0,10,30,ord("\n"),1)
     stdscr.refresh()
-    test = TextIn("Tab exits",4,25,4,30,ord("\t"),1)
+    test = TextIn("Tab exits",4,25,1,30,ord("\t"),1)
     #reset
     curses.curs_set(1)
     curses.nocbreak()

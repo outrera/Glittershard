@@ -10,6 +10,9 @@
 """
 import curses, curses.panel, ConfigParser
 
+#TODO Change in from tuple to enum (maybe)
+#TODO Pass window size through __init__
+
 c = ConfigParser.SafeConfigParser()
 if c.read("settings.ini") and c.has_section("menu"):
     BORDER = c.getint("menu","border")
